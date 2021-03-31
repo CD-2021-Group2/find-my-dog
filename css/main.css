@@ -1,4 +1,9 @@
 /* COMMON */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     color: #333;
     font-size: 16px;
@@ -22,7 +27,7 @@ a {
 }
 
 .btn {
-    width: 180px;
+    width: 190px;
     padding: 10px;
     border: 2px solid #006a4e;
     border-radius: 4px;
@@ -42,13 +47,13 @@ a {
 }
 
 .btn.btn--reverse {
-    background-color: #333;
+    background-color: #006a4e;
     color: #fff;
 }
 
 .btn.btn--reverse:hover {
     background-color: transparent;
-    color: #333;
+    color: #006a4e;
 }
 
 .btn.btn--brown {
@@ -103,7 +108,7 @@ header .menu {
     position: absolute;
     top: 30px;
     bottom: 0;
-    left: 0;
+    left: 10px;
     z-index: 1;
 }
 
@@ -115,9 +120,8 @@ header .menu .material-icons {
 
 header .menu .items {
     width: 100%;
-    padding: 20px 0;
+    padding: 40px 20px;
     background-color: #006a4e;
-    color: #fff;
     font-size: 14px;
     position: fixed;
     left: 0;
@@ -129,9 +133,20 @@ header .menu:hover .items {
 }
 
 header .menu .items li {
-
+    margin-top: 16px;
 }
 
+header .menu .items li a {
+    color: #fff;
+}
+
+header .menu .items li:first-child {
+    margin-top: 0;
+}
+
+header .menu .items li:hover {
+    font-weight: 700;
+}
 
 header a.material-icons {
     color: #006a4e;
@@ -148,7 +163,7 @@ header .notifications {
     position: absolute;
     top: 30px;
     bottom: 0;
-    right: 0;
+    right: 10px;
     z-index: 1;
 }
 
@@ -161,16 +176,17 @@ header .notifications .material-icons {
 header .notifications .items {}
 
 
-
-
 /* MAIN */
 .main {
+    height: 546.44px;
     width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 48%;
+    margin-top: -273px;
 }
 
 .main .inner {
-    padding: 150px 0 50px 0;
+    padding: 50px 0;
     justify-content: center; 
 }
 
@@ -205,31 +221,28 @@ header .notifications .items {}
     margin: 10px auto 0;
 }
 
+
 /* FOOTER */
 footer {
-    width: 100%;
     background-color: #006a4e;
-    z-index: 9;
-    position: fixed;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
 }
 
 footer .inner {
-    padding: 40px 0 60px 0;
+    padding: 40px 0;
+    box-sizing: border-box;
 }
 
 footer .info {
-    margin-top: 30px;
     text-align: center;
 }
 
 footer .info span {
-    margin-right: 20px;
-    color: #999;
+    color: #fff;
     font-size: 12px;
-}
-
-footer .info span:last-child {
-    margin-right: 0;
 }
 
 footer .copyright {
