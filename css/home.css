@@ -1,0 +1,50 @@
+/* MAIN */
+.main {
+    margin-top: 100px;
+    flex: 1;
+    min-height: 550px;
+    width: 100%;
+    position: relative;
+}
+
+.main .inner {
+    height: 550px;
+    padding: 50px 0;
+    min-width: 360px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+}
+
+.main .inner .title {
+    color:  #006a4e;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.main .inner img {
+    width: 100px;
+    margin: 30px auto;
+}
+
+.main .inner .welcome-text {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.main .inner .welcome-text .enrolled-number {
+    color: #006a4e;
+    font-weight: 700;
+}
+
+.main .inner .btn-group {
+    margin: 40px auto 0;
+}
+
+.main .inner .btn-group .btn {
+    margin: 10px auto 0;
+}
