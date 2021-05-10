@@ -30,10 +30,10 @@
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/search.css" />
 
-    <!-- <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script defer src="../js/search.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script defer src="../js/search.js"></script>
 </head>
 
 <body>
@@ -63,10 +63,143 @@
         </div>
     </header>
 
+    <!-- MODAL -->
+    <div class="black-bg hide"></div>
+    <div class="search-modal hide">
+        <h6 class="title">검색 조건 설정</h6>
+        <form>
+            <div class="input-item">
+                <h6>품종</h6>
+                <select class="breed">
+                    <option valeu="all">전체</option>
+                    <option valeu="jindo">진돗개</option>
+                    <option valeu="pomeranian">포메라니안</option>
+                </select>
+            </div>
+            <div class="input-item">
+                <h6>성별</h6>
+                <select class="sex">
+                    <option valeu="all">전체</option>
+                    <option valeu="male">수컷</option>
+                    <option valeu="female">암컷</option>
+                </select>
+            </div>
+            <div class="input-item">
+                <h6>나이</h6>
+                <select class="birth-year">
+                    <option valeu="all">전체</option>
+                    <option valeu="2021">2021</option>
+                    <option valeu="2020">2020</option>
+                </select>
+            </div>
+            <div class="input-item">
+                <h6>털색</h6>
+                <select class="color">
+                    <option valeu="all">전체</option>
+                    <option valeu="white">흰색</option>
+                    <option valeu="black">흑색</option>
+                </select>
+            </div>
+            <div class="input-item">
+                <h6>지역</h6>
+                <select class="district">
+                    <option valeu="all">전체</option>
+                    <option valeu="seoul">서울</option>
+                    <option valeu="gyeongi">경기</option>
+                </select>
+            </div>
+            <input id="modal-close-btn" type="submit" value="설정 완료">
+        </form>
+    </div>
+
     <!-- MAIN -->
     <section class="main">
         <div class="inner">
+            <div class="search-box">
+                <div class="key-word all">전체</div>
+                <button id="modal-on-btn"><span class="material-icons">add_circle</span></button>
+            </div>
+            <div class="post-container">
+                <a class="post-box" href="/search/post.html">
+                    <img src="../images/sample_dog.jpg" alt="000001">
+                    <div class="description">
+                        <div class="breed-tags">
+                            <div class="tag">페키니즈</div>
+                            <div class="tag">치와와</div>
+                            <div class="tag">시츄</div>
+                        </div>
+                        <ul class="details">
+                            <li class="reg-date">등록일: <span>2021-05-10</span></li>
+                            <li class="district">지역: <span>서울 관악</span></li>
+                            <li class="rescue-loc">구조장소: <span>신림119안전센터앞</span></li>
+                        </ul>
+                    </div>
+                </a>
 
+                <a class="post-box" href="/search/post.html">
+                    <img src="../images/sample_dog.jpg" alt="000001">
+                    <div class="description">
+                        <div class="breed-tags">
+                            <div class="tag">페키니즈</div>
+                            <div class="tag">치와와</div>
+                            <div class="tag">시츄</div>
+                        </div>
+                        <ul class="details">
+                            <li class="reg-date">등록일: <span>2021-05-10</span></li>
+                            <li class="district">지역: <span>서울 관악</span></li>
+                            <li class="rescue-loc">구조장소: <span>신림119안전센터앞</span></li>
+                        </ul>
+                    </div>
+                </a>
+
+                <a class="post-box" href="/search/post.html">
+                    <img src="../images/sample_dog.jpg" alt="000001">
+                    <div class="description">
+                        <div class="breed-tags">
+                            <div class="tag">페키니즈</div>
+                            <div class="tag">치와와</div>
+                            <div class="tag">시츄</div>
+                        </div>
+                        <ul class="details">
+                            <li class="reg-date">등록일: <span>2021-05-10</span></li>
+                            <li class="district">지역: <span>서울 관악</span></li>
+                            <li class="rescue-loc">구조장소: <span>신림119안전센터앞</span></li>
+                        </ul>
+                    </div>
+                </a>
+
+                <a class="post-box" href="/search/post.html">
+                    <img src="../images/sample_dog.jpg" alt="000001">
+                    <div class="description">
+                        <div class="breed-tags">
+                            <div class="tag">페키니즈</div>
+                            <div class="tag">치와와</div>
+                            <div class="tag">시츄</div>
+                        </div>
+                        <ul class="details">
+                            <li class="reg-date">등록일: <span>2021-05-10</span></li>
+                            <li class="district">지역: <span>서울 관악</span></li>
+                            <li class="rescue-loc">구조장소: <span>신림119안전센터앞</span></li>
+                        </ul>
+                    </div>
+                </a>
+
+                <a class="post-box" href="/search/post.html">
+                    <img src="../images/sample_dog.jpg" alt="000001">
+                    <div class="description">
+                        <div class="breed-tags">
+                            <div class="tag">페키니즈</div>
+                            <div class="tag">치와와</div>
+                            <div class="tag">시츄</div>
+                        </div>
+                        <ul class="details">
+                            <li class="reg-date">등록일: <span>2021-05-10</span></li>
+                            <li class="district">지역: <span>서울 관악</span></li>
+                            <li class="rescue-loc">구조장소: <span>신림119안전센터앞</span></li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
 

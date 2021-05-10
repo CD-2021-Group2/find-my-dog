@@ -77,3 +77,76 @@ ul.details li {
     margin: 10px auto 0;
     width: 100%;
 }
+
+/* MODAL */
+.black-bg {
+    display: block;
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.black-bg.hide {
+    display: none;
+}
+
+.call-modal {
+    display: block;
+    background-color: #fefefe;
+    border-radius: 4px;
+    border: 1px solid #888;
+    width: 300px;
+    height: 200px;
+    padding: 25px 0;
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
+    z-index: 4;
+}
+
+.call-modal.hide {
+    display: none;
+}
+
+.call-modal h6 {
+    text-align: center;
+    color: #006a4e;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.call-modal .inner {
+    padding: 0px 40px;
+    text-align: center;
+}
+
+.call-modal .contact div {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+.call-modal .contact div.shelter {
+    font-weight: 600;
+}
+
+.call-modal .inner a.btn.btn--reverse {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #006a4e;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}

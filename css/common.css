@@ -97,7 +97,7 @@ header {
     border-bottom: 1px solid #006a4e;
     position: fixed;
     top: 0;
-    z-index: 9;
+    z-index: 2;
     color: #006a4e;
 }
 
@@ -179,6 +179,7 @@ header .notifications .items {}
 
  /* MAIN */
  .main {
+    background-color: #FAFAFA;
     margin-top: 100px;
     min-height: calc(100%-20px);
     width: 100%;
@@ -186,16 +187,18 @@ header .notifications .items {}
 }
 
 .main .inner {
-    min-height: 550px;
+    background-color: #fff;
+    min-height: 100%;
     padding: 50px 0;
     min-width: 360px;
     box-sizing: border-box;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
 }
 
 /* FOOTER */
 footer {
     background-color: #006a4e;
-    /* flex: 1; */
 }
 
 footer .inner {

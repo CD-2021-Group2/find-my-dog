@@ -30,13 +30,25 @@
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/post.css" />
 
-    <!-- <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script defer src="../js/post.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script defer src="../js/post.js"></script>
 </head>
 
 <body>
+    <!-- MODAL -->
+    <div class="black-bg hide"></div>
+    <div class="call-modal hide">
+        <h6 class="title">입양 문의 연락처</h6>
+        <div class="inner">
+            <div class="contact">
+                <div class="shelter">러브펫종합동물병원</div>
+                <div class="tel">(TEL) <span>010-2345-4567</span></div>
+            </div>
+            <a id="modal-close-btn" class="btn btn--reverse" href="#">닫기</a>
+        </div>
+    </div>
 
     <!-- HEADER -->
     <header>
@@ -88,7 +100,7 @@
                         <li class="note">특이사항: <span>파란색목줄착용, 순하고사람잘따름</span></li>
                     </ul>
                     <div class="btn-group">
-                        <a href="/search/post.html" class="btn btn--reverse">입양 문의하기</a>
+                        <a id="modal-on-btn" href="#" class="btn btn--reverse">입양 문의하기</a>
                         <a href="/search" class="btn btn">다른 게시물 보기</a>
                     </div>
                 </form>
