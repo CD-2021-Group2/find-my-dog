@@ -1,0 +1,120 @@
+/* REGISTER */
+.main .inner .slide-pager-container {
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px 15px;
+}
+
+.main .inner .slide-pager {
+    display: flex;
+}
+
+.main .inner .slide-pager .bul-1 {
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    outline: none;
+    background-image: url("../images/slide_pager_on.png");
+}
+
+.main .inner .slide-pager .bul-2,
+.main .inner .slide-pager .bul-3,
+.main .inner .slide-pager .bul-4 {
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    outline: none;
+    background-image: url("../images/slide_pager.png");
+}
+
+.register__card {
+    /* background-color: lightcoral; */
+    width: 300px;
+    margin: 0 auto;
+}
+
+.register__card form {
+    padding: 15px 22px;
+}
+
+.register__card form .image-box-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.register__card form .image-box {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.register__card form .image-box .material-icons {
+    color: #006a4e;
+    font-size: 50px;
+}
+
+.register__card form .input-group .input-item {
+    display: flex;
+    align-items: center;
+}
+
+.register__card form .input-group .input-item h6 {
+    margin-right: 10px;
+    color: #006a4e;
+    font-weight: 600;
+}
+
+.register__card form .input-group .input-item .unit {
+    margin-left: 6px;
+    font-size: 14px;
+}
+
+.register__card form .input-group .input-item select{
+    background-color: #fff;
+    width: 80%;
+    margin: 12px 5px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #555;
+}
+
+.register__card form .input-group .input-item [type="text"] {
+    width: 25%;
+    margin: 12px 5px;
+    padding: 11px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #555;
+}
+
+.register__card form .input-group [type="submit"] {
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 15px;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #006a4e;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 0;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}

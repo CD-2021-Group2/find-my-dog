@@ -177,9 +177,24 @@ header .notifications .material-icons {
 
 header .notifications .items {}
 
+ /* MAIN */
+ .main {
+    margin-top: 100px;
+    min-height: calc(100%-20px);
+    width: 100%;
+}
+
+.main .inner {
+    min-height: 550px;
+    padding: 50px 0;
+    min-width: 360px;
+    box-sizing: border-box;
+}
+
 /* FOOTER */
 footer {
     background-color: #006a4e;
+    flex: 1;
 }
 
 footer .inner {

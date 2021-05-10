@@ -1,0 +1,144 @@
+/* REGISTER_3 */
+.main .inner .slide-pager-container {
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px 15px;
+}
+
+.main .inner .slide-pager {
+    display: flex;
+}
+
+.main .inner .slide-pager .bul-1,
+.main .inner .slide-pager .bul-2,
+.main .inner .slide-pager .bul-3 {
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    outline: none;
+    background-image: url("../images/slide_pager_on.png");
+}
+
+.main .inner .slide-pager .bul-4 {
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    outline: none;
+    background-image: url("../images/slide_pager.png");
+}
+
+.register__card {
+    /* background-color: lightcoral; */
+    width: 300px;
+    margin: 0 auto;
+}
+
+.register__card form {
+    padding: 15px 22px;
+}
+
+
+/* INPUT */
+.register__card form .input-group .input-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 12px;
+}
+
+.register__card form .input-group .input-item h6 {
+    margin-right: 10px;
+    color: #006a4e;
+    font-weight: 600;
+}
+
+.register__card form .input-group .input-item .unit {
+    margin-left: 6px;
+    font-size: 14px;
+}
+
+.register__card form .input-group .input-item [type="text"] {
+    width: 65%;
+    margin: 12px 5px;
+    padding: 11px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #555;
+    position: absolute;
+    right: 0px;
+}
+
+/* DATE */
+
+div.input-group div.input-item:nth-child(2) {
+    display: block;
+    width: 100%;
+    height: 140px;
+    margin-bottom: 12px;
+}
+
+div.input-group div.input-item:nth-child(2) h6 {
+    margin-bottom: 12px;
+}
+
+div.date-container {
+    display: block;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+div.date-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 12px;
+}
+
+div.date-item label {
+    margin-left: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+div.input-item [type="date"] {
+    background-color: #fff;
+    width: 65%;
+    margin: 12px 5px;
+    padding: 11px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #555;
+    position: absolute;
+    right: 0px;
+}
+
+
+/* BUTTON */
+.btn-group {
+    margin-top: 30px;
+    display: flex;
+}
+
+.btn-group .btn.btn--reverse {
+    font-size: 16px;
+}
+
+.btn-group .btn.btn--reverse:first-child {
+    margin-right: 40px;
+}
+
+.btn-group .btn.btn--reverse:last-child {
+    margin-left: 40px;
+}

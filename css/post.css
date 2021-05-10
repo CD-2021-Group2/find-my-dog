@@ -1,0 +1,79 @@
+/* POST */
+.register__card {
+    /* background-color: lightcoral; */
+    width: 300px;
+    margin: 0 auto;
+}
+
+.register__card form {
+    padding: 15px 22px;
+}
+
+/* IMAGE */
+.register__card form .image-box-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.register__card form .image-box {
+    border-radius: 4px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* BREED-TAGS */
+.breed-tags {
+    display: flex;
+}
+
+.breed-tags .tag {
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.breed-tags div.tag:first-child {background: #F8807E;}
+.breed-tags div.tag:nth-child(2) { background: #FBA43A;}
+.breed-tags div.tag:last-child { background:  #26B395;}
+
+/* FEATURES */
+.features {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+hr {
+    color: #006a4e;
+}
+
+/* DETAILS */
+ul.details {
+    font-size: 12px;
+    list-style-type: inherit;
+    list-style-position: inside;
+    margin: 15px 0px 30px;
+}
+
+ul.details li {
+    margin-bottom: 7px;
+}
+
+/* BUTTON */
+.btn-group {
+    margin: 0 auto 0;
+}
+
+.btn-group .btn {
+    margin: 10px auto 0;
+    width: 100%;
+}

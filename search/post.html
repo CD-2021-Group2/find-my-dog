@@ -5,20 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로그인</title>
+    <title>유기견 검색</title>
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Find My Dog" />
     <meta property="og:title" content="Find My Dog" />
     <meta property="og:description" content="AI 서비스를 통해 나의 소중한 강아지를 찾아보세요." />
-    <meta property="og:image" content=".../images/starbucks_seo.jpg" />
+    <meta property="og:image" content="../images/starbucks_seo.jpg" />
     <meta property="og:url" content="" />
 
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:site" content="Find My Dog" />
     <meta property="twitter:title" content="Find My Dog" />
     <meta property="twitter:description" content="AI 서비스를 통해 나의 소중한 강아지를 찾아보세요." />
-    <meta property="twitter:image" content=".../images/starbucks_seo.jpg" />
+    <meta property="twitter:image" content="../images/starbucks_seo.jpg" />
     <meta property="twitter:url" content="" />
 
     <link rel="icon" href="../favicon.png" />
@@ -28,9 +28,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/post.css" />
 
-    <script defer src="../js/home.js"></script>
+    <!-- <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script defer src="../js/post.js"></script> -->
 </head>
 
 <body>
@@ -43,9 +46,9 @@
                 <div class="items">
                     <ul class="inner">
                         <li><a href="/">홈</a></li>
-                        <li><a href="javascript:void(0)">마이 페이지</a></li>
-                        <li><a href="javascript:void(0)">유기견 검색</a></li>
-                        <li><a href="javascript:void(0)">유기견 등록</a></li>
+                        <li><a href="/mypage">마이 페이지</a></li>
+                        <li><a href="/search">유기견 검색</a></li>
+                        <li><a href="/register">유기견 등록</a></li>
                         <li><a href="/signin">로그인/로그아웃</a></li>
                     </ul>
                 </div>
@@ -60,19 +63,35 @@
         </div>
     </header>
 
-    <!-- SIGNIN -->
+    <!-- MAIN -->
     <section class="main">
         <div class="inner">
-            <h1>로그인</h1>
-            <div class="signin__card">
+            <div class="register__card">
                 <form>
-                    <input type="text" placeholder="아이디" />
-                    <input type="password" placeholder="비밀번호" />
-                    <input type="submit" value="로그인" />
+                    <div class="image-box-container">
+                        <img class="image-box" src="../images/sample_dog.jpg" alt="dog-image">
+                    </div>
+                    <div class="breed-tags">
+                        <div class="tag">페키니즈</div>
+                        <div class="tag">치와와</div>
+                        <div class="tag">시츄</div>
+                    </div>
+                    <div class="features">
+                        <span class="sex">암컷</span>/<span class="color">베이지</span>/<span class="birthyear">2017</span>(년생)/<span class="weight">5.58</span>(kg)
+                    </div>
+                    <hr>
+                    <ul class="details">
+                        <li class="number">공고번호: <span>서울-관악-2021-00183</span></li>
+                        <li class="date">공고기간: <span>2021-05-10 ~ 2021-05-20</span></li>
+                        <li class="location">발견장소: <span>신림119안전센터앞</span></li>
+                        <li class="shelter">보호센터: <span>러브펫종합동물병원</span></li>
+                        <li class="note">특이사항: <span>파란색목줄착용, 순하고사람잘따름</span></li>
+                    </ul>
+                    <div class="btn-group">
+                        <a href="/search/post.html" class="btn btn--reverse">입양 문의하기</a>
+                        <a href="/search" class="btn btn">다른 게시물 보기</a>
+                    </div>
                 </form>
-                <div class="actions">
-                    <a href="/join">회원가입</a>
-                </div>
             </div>
         </div>
     </section>

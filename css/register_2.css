@@ -1,0 +1,123 @@
+/* REGISTER_2 */
+.main .inner .slide-pager-container {
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px 15px;
+}
+
+.main .inner .slide-pager {
+    display: flex;
+}
+
+.main .inner .slide-pager .bul-1,
+.main .inner .slide-pager .bul-2 {
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    outline: none;
+    background-image: url("../images/slide_pager_on.png");
+}
+
+.main .inner .slide-pager .bul-3,
+.main .inner .slide-pager .bul-4 {
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    outline: none;
+    background-image: url("../images/slide_pager.png");
+}
+
+.register__card {
+    /* background-color: lightcoral; */
+    width: 300px;
+    margin: 0 auto;
+}
+
+.register__card form {
+    padding: 15px 22px;
+}
+
+.register__card form .image-box-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.register__card form .image-box {
+    border-radius: 4px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* PERCENTAGE */
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.percentage {
+    width: 100%;
+    height: 25px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.percentage .title {
+    color: #555;
+    font-size: 16px;
+    font-weight: 600;
+    width: 160px;
+}
+
+.percentage .percentage-bar {
+    background-color: #ddd;
+    /* border-radius: 7px; */
+    margin-left: 7px;
+    width: 100%;
+    height: 25px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.percentage .percentage-bar .bar {
+    width: 0;
+    height: 25px;
+}
+
+.percentage .percentage-bar .percent {
+    font-size: 5px;
+    padding: 1px 0;
+    position: absolute;
+    right: 10px;
+}
+
+section.percentage:first-child div.percentage-bar div.bar { background: #F8807E; }
+section.percentage:nth-child(2) div.percentage-bar div.bar { background:  #FBA43A; }
+section.percentage:last-child div.percentage-bar div.bar { background:  #26B395;}
+
+/* BUTTON */
+.btn-group {
+    margin-top: 30px;
+    display: flex;
+}
+
+.btn-group .btn.btn--reverse {
+    font-size: 16px;
+}
+
+.btn-group .btn.btn--reverse:first-child {
+    margin-right: 40px;
+}
+
+.btn-group .btn.btn--reverse:last-child {
+    margin-left: 40px;
+}

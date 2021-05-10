@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find My Dog</title>
+    <title>유기견 등록</title>
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Find My Dog" />
@@ -21,16 +21,20 @@
     <meta property="twitter:image" content="../images/starbucks_seo.jpg" />
     <meta property="twitter:url" content="" />
 
-    <link rel="icon" href="./favicon.png" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
+    <link rel="icon" href="../favicon.png" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="./css/common.css" />
-    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/register_2.css" />
 
-    <script defer src="./js/main.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script defer src="../js/register.js"></script>
+
 </head>
 
 <body>
@@ -63,16 +67,51 @@
     <!-- MAIN -->
     <section class="main">
         <div class="inner">
-            <div class="title">Find My Dog</div>
-            <img src="./images/dog-icon.png" alt="dog-icon">
-            <p class="welcome-text">
-                <span class="enrolled-number">X,XXX</span>마리의 유기견이<br />
-                등록되었어요.
-            </p>
-            <div class="btn-group">
-                <a href="/search" class="btn">유기견 검색</a>
-                <a href="/register" class="btn">유기견 등록</a>
-                <a href="/signin" class="btn btn--reverse">로그인/회원가입</a>
+            <div class="slide-pager-container">
+                <div class="slide-pager">
+                    <div class="bul-1"></div>
+                    <div class="bul-2"></div>
+                    <div class="bul-3"></div>
+                    <div class="bul-4"></div>
+                </div>
+            </div>
+            <div class="register__card">
+                <form>
+                    <div class="image-box-container">
+                        <img class="image-box" src="../images/sample_dog.jpg" alt="dog-image">
+                    </div>
+                    <div class="wrapper">
+                        <article>
+                            <section class="percentage">
+                                <div class="title"><span>페키니즈</span></div>
+                                <div class="percentage-bar" data-percent="70%">
+                                    <div class="bar"></div>
+                                    <div class="percent">70%</div>
+                                </div>
+                            </section>
+
+                            <section class="percentage">
+                                <div class="title"><span>치와와</span></div>
+                                <div class="percentage-bar" data-percent="20%">
+                                    <div class="bar"></div>
+                                    <div class="percent">20%</div>
+                                </div>
+                            </section>
+
+                            <section class="percentage">
+                                <div class="title"><span>시츄</span></div>
+                                <div class="percentage-bar" data-percent="10%">
+                                    <div class="bar"></div>
+                                    <div class="percent">10%</div>
+                                </div>
+                            </section>
+                        </article>
+                    </div>
+                    <div class="btn-group">
+                        <a href="/register/index.html" class="btn btn--reverse">이전</a>
+                        <a href="/register/register_3.html" class="btn btn--reverse">다음</a>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
