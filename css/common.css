@@ -182,6 +182,7 @@ header .notifications .items {}
     margin-top: 100px;
     min-height: calc(100%-20px);
     width: 100%;
+    flex: 1;
 }
 
 .main .inner {
@@ -194,7 +195,7 @@ header .notifications .items {}
 /* FOOTER */
 footer {
     background-color: #006a4e;
-    flex: 1;
+    /* flex: 1; */
 }
 
 footer .inner {
