@@ -11,29 +11,28 @@
     <meta property="og:site_name" content="Find My Dog" />
     <meta property="og:title" content="Find My Dog" />
     <meta property="og:description" content="AI 서비스를 통해 나의 소중한 강아지를 찾아보세요." />
-    <meta property="og:image" content="../images/starbucks_seo.jpg" />
+    <meta property="og:image" content="../../static/img/starbucks_seo.jpg" />
     <meta property="og:url" content="" />
 
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:site" content="Find My Dog" />
     <meta property="twitter:title" content="Find My Dog" />
     <meta property="twitter:description" content="AI 서비스를 통해 나의 소중한 강아지를 찾아보세요." />
-    <meta property="twitter:image" content="../images/starbucks_seo.jpg" />
+    <meta property="twitter:image" content="../../static/img/starbucks_seo.jpg" />
     <meta property="twitter:url" content="" />
 
-    <link rel="icon" href="../favicon.png" />
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/post.css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/common.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/mypage.css')}}" />
 
-    <!-- <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script defer src="../js/post.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script defer src="{{url_for('static', filename='js/mypage.js')}}"></script>
 </head>
 
 <body>

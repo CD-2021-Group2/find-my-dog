@@ -11,30 +11,28 @@
     <meta property="og:site_name" content="Find My Dog" />
     <meta property="og:title" content="Find My Dog" />
     <meta property="og:description" content="AI 서비스를 통해 나의 소중한 강아지를 찾아보세요." />
-    <meta property="og:image" content="../images/starbucks_seo.jpg" />
+    <meta property="og:image" content="../../static/img/starbucks_seo.jpg" />
     <meta property="og:url" content="" />
 
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:site" content="Find My Dog" />
     <meta property="twitter:title" content="Find My Dog" />
     <meta property="twitter:description" content="AI 서비스를 통해 나의 소중한 강아지를 찾아보세요." />
-    <meta property="twitter:image" content="../images/starbucks_seo.jpg" />
+    <meta property="twitter:image" content="../../static/img/starbucks_seo.jpg" />
     <meta property="twitter:url" content="" />
 
-    <link rel="icon" href="../favicon.png" />
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/register_2.css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/common.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/register_3.css')}}" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script defer src="../js/register.js"></script>
-
+    <script defer src="{{url_for('static', filename='js/register.js')}}"></script>
 </head>
 
 <body>
@@ -76,40 +74,49 @@
                 </div>
             </div>
             <div class="register__card">
-                <form>
-                    <div class="image-box-container">
-                        <img class="image-box" src="../images/sample_dog.jpg" alt="dog-image">
-                    </div>
-                    <div class="wrapper">
-                        <article>
-                            <section class="percentage">
-                                <div class="title"><span>페키니즈</span></div>
-                                <div class="percentage-bar" data-percent="70%">
-                                    <div class="bar"></div>
-                                    <div class="percent">70%</div>
+                <form action="/register/4">
+                    <div class="input-group">
+                        <div class="input-item">
+                            <h6>공고번호</h6>
+                            <input type="text" placeholder="XX-XX-20XX-XXXXX" />
+                        </div>
+                        <div class="input-item">
+                            <h6>공고기간</h6>
+                            <div class="date-container">
+                                <div class="date-item">
+                                    <label for="reg-date">등록일</label>
+                                    <input type="date" name="reg-date" id="reg-date">
                                 </div>
-                            </section>
-
-                            <section class="percentage">
-                                <div class="title"><span>치와와</span></div>
-                                <div class="percentage-bar" data-percent="20%">
-                                    <div class="bar"></div>
-                                    <div class="percent">20%</div>
+                                <div class="date-item">
+                                    <label for="due-date">마감일</label>
+                                    <input type="date" name="due-date" id="due-date">
                                 </div>
-                            </section>
-
-                            <section class="percentage">
-                                <div class="title"><span>시츄</span></div>
-                                <div class="percentage-bar" data-percent="10%">
-                                    <div class="bar"></div>
-                                    <div class="percent">10%</div>
-                                </div>
-                            </section>
-                        </article>
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <h6>발견장소</h6>
+                            <input type="text" placeholder="XX공원앞 부근" />
+                        </div>
+                        <div class="input-item">
+                            <h6>보호센터</h6>
+                            <input type="text" placeholder="XX동물병원" />
+                        </div>
+                        <div class="input-item">
+                            <h6>출생년도</h6>
+                            <input type="text" placeholder="20XX" />
+                        </div>
+                        <div class="input-item">
+                            <h6>털색</h6>
+                            <input type="text" placeholder="XX색" />
+                        </div>
+                        <div class="input-item">
+                            <h6>특이사항</h6>
+                            <input type="text" placeholder="온순함" />
+                        </div>
                     </div>
                     <div class="btn-group">
-                        <a href="/register/index.html" class="btn btn--reverse">이전</a>
-                        <a href="/register/register_3.html" class="btn btn--reverse">다음</a>
+                        <a href="/register/2" class="btn btn--reverse">이전</a>
+                        <input class="btn btn--reverse" type="submit" value="다음">
                     </div>
                 </form>
             </div>

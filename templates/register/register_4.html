@@ -5,32 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find My Dog</title>
+    <title>유기견 등록</title>
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Find My Dog" />
     <meta property="og:title" content="Find My Dog" />
     <meta property="og:description" content="AI 서비스를 통해 나의 소중한 강아지를 찾아보세요." />
-    <meta property="og:image" content="../images/starbucks_seo.jpg" />
+    <meta property="og:image" content="../../static/img/starbucks_seo.jpg" />
     <meta property="og:url" content="" />
 
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:site" content="Find My Dog" />
     <meta property="twitter:title" content="Find My Dog" />
     <meta property="twitter:description" content="AI 서비스를 통해 나의 소중한 강아지를 찾아보세요." />
-    <meta property="twitter:image" content="../images/starbucks_seo.jpg" />
+    <meta property="twitter:image" content="../../static/img/starbucks_seo.jpg" />
     <meta property="twitter:url" content="" />
 
-    <link rel="icon" href="./favicon.png" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="./css/common.css" />
-    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/common.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/register_4.css')}}" />
 
-    <script defer src="./js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script defer src="{{url_for('static', filename='js/register.js')}}"></script>
 </head>
 
 <body>
@@ -63,16 +65,27 @@
     <!-- MAIN -->
     <section class="main">
         <div class="inner">
-            <div class="title">Find My Dog</div>
-            <img src="./images/dog-icon.png" alt="dog-icon">
-            <p class="welcome-text">
-                <span class="enrolled-number">X,XXX</span>마리의 유기견이<br />
-                등록되었어요.
-            </p>
-            <div class="btn-group">
-                <a href="/search" class="btn">유기견 검색</a>
-                <a href="/register" class="btn">유기견 등록</a>
-                <a href="/signin" class="btn btn--reverse">로그인/회원가입</a>
+            <div class="slide-pager-container">
+                <div class="slide-pager">
+                    <div class="bul-1"></div>
+                    <div class="bul-2"></div>
+                    <div class="bul-3"></div>
+                    <div class="bul-4"></div>
+                </div>
+            </div>
+            <div class="register__card">
+                <form>
+                    <div class="complete-message">
+                        <div class="icon-container">
+                            <div class="material-icons">check_circle</div>
+                        </div>
+                        <h6>등록이 완료되었습니다.</h6>
+                    </div>
+                    <div class="btn-group">
+                        <a href="/search/post" class="btn btn--reverse">게시물 이동하기</a>
+                        <a href="/mypage" class="btn btn--reverse">등록 수정하기</a>
+                    </div>
+                </form>
             </div>
         </div>
     </section>

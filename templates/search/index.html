@@ -11,29 +11,28 @@
     <meta property="og:site_name" content="Find My Dog" />
     <meta property="og:title" content="Find My Dog" />
     <meta property="og:description" content="AI 서비스를 통해 나의 소중한 강아지를 찾아보세요." />
-    <meta property="og:image" content="../images/starbucks_seo.jpg" />
+    <meta property="og:image" content="../../static/img/starbucks_seo.jpg" />
     <meta property="og:url" content="" />
 
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:site" content="Find My Dog" />
     <meta property="twitter:title" content="Find My Dog" />
     <meta property="twitter:description" content="AI 서비스를 통해 나의 소중한 강아지를 찾아보세요." />
-    <meta property="twitter:image" content="../images/starbucks_seo.jpg" />
+    <meta property="twitter:image" content="../../static/img/starbucks_seo.jpg" />
     <meta property="twitter:url" content="" />
 
-    <link rel="icon" href="../favicon.png" />
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/search.css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/common.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/search.css')}}" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-    <script defer src="../js/search.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script defer src="{{url_for('static', filename='js/search.js')}}"></script>
 </head>
 
 <body>
@@ -120,8 +119,8 @@
                 <button id="modal-on-btn"><span class="material-icons">add_circle</span></button>
             </div>
             <div class="post-container">
-                <a class="post-box" href="/search/post.html">
-                    <img src="../images/sample_dog.jpg" alt="000001">
+                <a class="post-box" href="/search/post">
+                    <img src="../../static/img/sample_dog.jpg" alt="000001">
                     <div class="description">
                         <div class="breed-tags">
                             <div class="tag">페키니즈</div>
@@ -136,8 +135,8 @@
                     </div>
                 </a>
 
-                <a class="post-box" href="/search/post.html">
-                    <img src="../images/sample_dog.jpg" alt="000001">
+                <a class="post-box" href="/search/post">
+                    <img src="../../static/img/sample_dog.jpg" alt="000001">
                     <div class="description">
                         <div class="breed-tags">
                             <div class="tag">페키니즈</div>
@@ -152,8 +151,8 @@
                     </div>
                 </a>
 
-                <a class="post-box" href="/search/post.html">
-                    <img src="../images/sample_dog.jpg" alt="000001">
+                <a class="post-box" href="/search/post">
+                    <img src="../../static/img/sample_dog.jpg" alt="000001">
                     <div class="description">
                         <div class="breed-tags">
                             <div class="tag">페키니즈</div>
@@ -168,8 +167,8 @@
                     </div>
                 </a>
 
-                <a class="post-box" href="/search/post.html">
-                    <img src="../images/sample_dog.jpg" alt="000001">
+                <a class="post-box" href="/search/post">
+                    <img src="../../static/img/sample_dog.jpg" alt="000001">
                     <div class="description">
                         <div class="breed-tags">
                             <div class="tag">페키니즈</div>
@@ -184,8 +183,8 @@
                     </div>
                 </a>
 
-                <a class="post-box" href="/search/post.html">
-                    <img src="../images/sample_dog.jpg" alt="000001">
+                <a class="post-box" href="/search/post">
+                    <img src="../../static/img/sample_dog.jpg" alt="000001">
                     <div class="description">
                         <div class="breed-tags">
                             <div class="tag">페키니즈</div>
