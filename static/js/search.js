@@ -15,28 +15,28 @@ modalOffBtn.addEventListener('click', function () {
 });
 
 // SEARCH
-$(document).ready(function () {
-    getSearchData();
-});
+// $(document).ready(function () {
+//     getSearchData();
+// });
 
-function getSearchData() {
+// function getSearchData() {
 
 
-    $.ajax({
-        type: "POST",
-        url: "/search_data",
-        data: {
-            'num_give': num
-        },
-        success: function (response) {
-            if (response["result"] == "success") {
-                let search_data = response["search_data"];
-                insertPostData(search_data);
-            } else {
-                alert("데이터 검색 실패");
-            }
-        }
-    })
-}
+//     $.ajax({
+//         type: "POST",
+//         url: "/search_data",
+//         data: {
+//             'num_give': num
+//         },
+//         success: function (response) {
+//             if (response["result"] == "success") {
+//                 let search_data = response["search_data"];
+//                 insertPostData(search_data);
+//             } else {
+//                 alert("데이터 검색 실패");
+//             }
+//         }
+//     })
+// }
 
-function insertSearchData(search_data) {}
+// function insertSearchData(search_data) {}
