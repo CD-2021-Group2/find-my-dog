@@ -161,7 +161,7 @@ header a.material-icons {
     margin: auto;
 }
 
-header .notifications {
+header .signin {
     position: absolute;
     top: 30px;
     bottom: 0;
@@ -169,13 +169,15 @@ header .notifications {
     z-index: 1;
 }
 
-header .notifications .material-icons {
-    font-size: 40px;
+#signin_status {
+    color: #006a4e;
+    margin-top: 11px;
+    font-size: 15px;
+    font-weight: 800;
     padding-bottom: 30px;
     cursor: pointer;
 }
 
-header .notifications .items {}
 
  /* MAIN */
  .main {

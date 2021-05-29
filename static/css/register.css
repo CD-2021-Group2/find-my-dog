@@ -55,10 +55,28 @@
 
 }
 
-.register__card form .image-box .material-icons {
+.register__card form .image-box label.material-icons {
     color: #006a4e;
     font-size: 50px;
+    cursor: pointer;
 }
+
+#output {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#output.hide {
+    display: none;
+}
+
 
 .register__card form .input-group .input-item {
     display: flex;

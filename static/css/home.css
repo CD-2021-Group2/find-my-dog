@@ -16,7 +16,7 @@
     text-align: center;
 }
 
-.main .inner .welcome-text .enrolled-number {
+.main .inner .welcome-text #enrolled-number {
     color: #006a4e;
     font-weight: 700;
 }

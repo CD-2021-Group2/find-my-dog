@@ -32,7 +32,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script defer src="{{url_for('static', filename='js/register.js')}}"></script>
+    <script defer src="{{url_for('static', filename='js/common.js')}}"></script>
+    <script defer src="{{url_for('static', filename='js/register_3.js')}}"></script>
 </head>
 
 <body>
@@ -45,19 +46,16 @@
                 <div class="items">
                     <ul class="inner">
                         <li><a href="/">홈</a></li>
-                        <li><a href="/mypage">마이 페이지</a></li>
+                        <li><a onclick="showMyPageAlert()">마이 페이지</a></li>
                         <li><a href="/search">유기견 검색</a></li>
-                        <li><a href="/register">유기견 등록</a></li>
-                        <li><a href="/signin">로그인/로그아웃</a></li>
+                        <li><a onclick="showRegisterAlert()"></a></li>
+                        <li><a onclick="showSigninAlert()">로그인/회원가입</a></li>
                     </ul>
                 </div>
             </div>
             <a href="/" class="material-icons">pets</a>
-            <div class="notifications">
-                <div class="material-icons">notifications</div>
-                <ul class="items">
-                    <li></li>
-                </ul>
+            <div class="signin">
+                <div id="signin_status" onclick="changeSigninStatus()">로그인</div>
             </div>
         </div>
     </header>
@@ -74,11 +72,11 @@
                 </div>
             </div>
             <div class="register__card">
-                <form action="/register/4">
+                <form onsubmit="postDogData()">
                     <div class="input-group">
                         <div class="input-item">
                             <h6>공고번호</h6>
-                            <input type="text" placeholder="XX-XX-20XX-XXXXX" />
+                            <input id="num" type="text" placeholder="XX-XX-20XX-XXXXX" />
                         </div>
                         <div class="input-item">
                             <h6>공고기간</h6>
@@ -95,23 +93,23 @@
                         </div>
                         <div class="input-item">
                             <h6>발견장소</h6>
-                            <input type="text" placeholder="XX공원앞 부근" />
+                            <input id="loc" type="text" placeholder="XX공원앞 부근" />
                         </div>
                         <div class="input-item">
                             <h6>보호센터</h6>
-                            <input type="text" placeholder="XX동물병원" />
+                            <input id="shel" type="text" placeholder="XX동물병원" />
                         </div>
                         <div class="input-item">
                             <h6>출생년도</h6>
-                            <input type="text" placeholder="20XX" />
+                            <input id="byear" type="text" placeholder="20XX" />
                         </div>
                         <div class="input-item">
                             <h6>털색</h6>
-                            <input type="text" placeholder="XX색" />
+                            <input id="color" type="text" placeholder="XX색" />
                         </div>
                         <div class="input-item">
                             <h6>특이사항</h6>
-                            <input type="text" placeholder="온순함" />
+                            <input id="note" type="text" placeholder="온순함" />
                         </div>
                     </div>
                     <div class="btn-group">

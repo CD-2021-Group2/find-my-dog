@@ -32,6 +32,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script defer src="{{url_for('static', filename='js/common.js')}}"></script>
     <script defer src="{{url_for('static', filename='js/mypage.js')}}"></script>
 </head>
 
@@ -45,19 +46,16 @@
                 <div class="items">
                     <ul class="inner">
                         <li><a href="/">홈</a></li>
-                        <li><a href="/mypage">마이 페이지</a></li>
+                        <li><a onclick="showMyPageAlert()">마이 페이지</a></li>
                         <li><a href="/search">유기견 검색</a></li>
-                        <li><a href="/register">유기견 등록</a></li>
-                        <li><a href="/signin">로그인/로그아웃</a></li>
+                        <li><a onclick="showRegisterAlert()"></a></li>
+                        <li><a onclick="showSigninAlert()">로그인/회원가입</a></li>
                     </ul>
                 </div>
             </div>
             <a href="/" class="material-icons">pets</a>
-            <div class="notifications">
-                <div class="material-icons">notifications</div>
-                <ul class="items">
-                    <li></li>
-                </ul>
+            <div class="signin">
+                <div id="signin_status" onclick="changeSigninStatus()">로그인</div>
             </div>
         </div>
     </header>
@@ -65,7 +63,7 @@
     <!-- MAIN -->
     <section class="main">
         <div class="inner">
-            
+
         </div>
     </section>
 

@@ -32,6 +32,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script defer src="{{url_for('static', filename='js/common.js')}}"></script>
     <script defer src="{{url_for('static', filename='js/home.js')}}"></script>
 </head>
 
@@ -45,19 +46,16 @@
                 <div class="items">
                     <ul class="inner">
                         <li><a href="/">홈</a></li>
-                        <li><a href="/mypage">마이 페이지</a></li>
+                        <li><a onclick="showMyPageAlert()">마이 페이지</a></li>
                         <li><a href="/search">유기견 검색</a></li>
-                        <li><a href="/register">유기견 등록</a></li>
-                        <li><a href="/signin">로그인/로그아웃</a></li>
+                        <li><a onclick="showRegisterAlert()"></a></li>
+                        <li><a onclick="showSigninAlert()">로그인/회원가입</a></li>
                     </ul>
                 </div>
             </div>
             <a href="/" class="material-icons">pets</a>
-            <div class="notifications">
-                <div class="material-icons">notifications</div>
-                <ul class="items">
-                    <li></li>
-                </ul>
+            <div class="signin">
+                <div id="signin_status" onclick="changeSigninStatus()">로그인</div>
             </div>
         </div>
     </header>
@@ -68,13 +66,13 @@
             <div class="title">Find My Dog</div>
             <img src="../../static/img/dog-icon.png" alt="dog-icon">
             <p class="welcome-text">
-                <span class="enrolled-number">X,XXX</span>마리의 유기견이<br />
+                <span id="enrolled-number">X,XXX</span> 마리의 유기견이<br />
                 등록되었어요.
             </p>
             <div class="btn-group">
                 <a href="/search" class="btn">유기견 검색</a>
                 <a href="/register" class="btn">유기견 등록</a>
-                <a href="/signin" class="btn btn--reverse">로그인/회원가입</a>
+                <a onclick="showSigninAlert()" class="btn btn--reverse">로그인/회원가입</a>
             </div>
         </div>
     </section>

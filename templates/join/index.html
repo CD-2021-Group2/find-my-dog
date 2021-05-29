@@ -32,6 +32,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script defer src="{{url_for('static', filename='js/common.js')}}"></script>
     <script defer src="{{url_for('static', filename='js/join.js')}}"></script>
 </head>
 
@@ -45,41 +46,36 @@
                 <div class="items">
                     <ul class="inner">
                         <li><a href="/">홈</a></li>
-                        <li><a href="/mypage">마이 페이지</a></li>
+                        <li><a onclick="showMyPageAlert()">마이 페이지</a></li>
                         <li><a href="/search">유기견 검색</a></li>
-                        <li><a href="/register">유기견 등록</a></li>
-                        <li><a href="/signin">로그인/로그아웃</a></li>
+                        <li><a onclick="showRegisterAlert()"></a></li>
+                        <li><a onclick="showSigninAlert()">로그인/회원가입</a></li>
                     </ul>
                 </div>
             </div>
             <a href="/" class="material-icons">pets</a>
-            <div class="notifications">
-                <div class="material-icons">notifications</div>
-                <ul class="items">
-                    <li></li>
-                </ul>
+            <div class="signin">
+                <div id="signin_status" onclick="changeSigninStatus()">로그인</div>
             </div>
         </div>
     </header>
-
     <!-- JOIN -->
     <section class="main">
         <div class="inner">
             <h1>회원가입</h1>
             <div class="join__card">
-                <form action="/signin">
-                    <input type="text" placeholder="아이디" />
-                    <input type="password" placeholder="비밀번호" />
-                    <input type="password" placeholder="비밀번호 확인" />
+                <form class="join_form" onsubmit="postJoinData()">
+                    <input id="id" type="text" placeholder="아이디" />
+                    <input id="pw" type="password" placeholder="비밀번호" />
+                    <input id="pw_check" type="password" placeholder="비밀번호 확인" />
                     <div class="name">
-                        <input type="text" placeholder="이름">
-                        <select>
-                            <option valeu="">소속</option>
-                            <option valeu="indi">개인</option>
-                            <option valeu="org">단체</option>
+                        <input id="name" type="text" placeholder="이름">
+                        <select id="dept">
+                            <option value="">소속</option>
+                            <option value="indi">개인</option>
+                            <option value="org">단체</option>
                         </select>
                     </div>
-                    <input type="text" placeholder="전화번호">
                     <input type="submit" value="회원가입" />
                 </form>
             </div>
