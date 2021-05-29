@@ -128,6 +128,7 @@ def post_register():
     ddate_receive = request.form['ddate_give']
     loc_receive = request.form['loc_give']
     shel_receive = request.form['shel_give']
+    tel_receive = request.form['tel_give']
     note_receive = request.form['note_give']
 
     district = ... #num_receive에서 district만 분리해내기 (ex: 서울)
@@ -144,6 +145,7 @@ def post_register():
         'due-date': ddate_receive,
         'loc': loc_receive,
         'shel': shel_receive,
+        'tel': tel_receive,
         'note': note_receive,
         'dist': district
     }
@@ -153,79 +155,89 @@ def post_register():
     return jsonify({'result': 'success'})
 
 
-# 유기견 품종 분류
-@app.route("/breed_data", methods=['POST'])
-def post_breed():
-    img_receive = request.form['img_give']
-    sex_receive = request.form['sex_give']
-    hei_receive = request.form['hei_give']
-    wei_receive = request.form['wei_give']
-    bcs_receive = request.form['bcs_give']
+# # 유기견 품종 분류
+# @app.route("/breed_data", methods=['POST'])
+# def post_breed():
+#     sex_receive = request.form['sex_give']
+#     hei_receive = request.form['hei_give']
+#     wei_receive = request.form['wei_give']
+#     bcs_receive = request.form['bcs_give']
 
-    sex = sex_receive
-    wei = cal_BCS(wei_receive, bcs_receive)
-    hei = hei_receive
+#     sex = sex_receive
+#     wei = cal_BCS(wei_receive, bcs_receive)
+#     hei = hei_receive
 
-    breed_data = check_breed(sex, wei, hei)
+#     breed_data = check_breed(sex, wei, hei)
 
-    return jsonify({'result': 'success', 'breed_data': breed_data})
-
-
-def cal_BCS(wei_receive, bcs_receive):
-    if bcs_receive == 'bcs-1':
-        wei = wei_receive*19/16
-    elif bcs_receive == 'bcs-2':
-        wei = wei_receive*8/9
-    elif bcs_receive == 'bcs-4':
-        wei = wei_receive*7/8
-    elif bcs_receive == 'bcs-5':
-        wei = wei_receive*3/4
-    else # bcs-3
-        wei = wei_receive
-
-    return round(wei, 2)   # 정상체중 환산 값을 소수점 둘째 자리까지 반환.
+#     return jsonify({'result': 'success', 'breed_data': breed_data})
 
 
-def check_breed(sex, wei, hei):
-    dogsex = sex
-    height = hei
-    weight = wei
+# def cal_BCS(wei_receive, bcs_receive):
+#     if bcs_receive == 'bcs-1':
+#         wei = wei_receive*19/16
+#     elif bcs_receive == 'bcs-2':
+#         wei = wei_receive*8/9
+#     elif bcs_receive == 'bcs-4':
+#         wei = wei_receive*7/8
+#     elif bcs_receive == 'bcs-5':
+#         wei = wei_receive*3/4
+#     else:
+#         wei = wei_receive
 
-    if dogsex == 'male':
-        con = sqlite3.connect(r"/dog_data_m.db")   #수컷데이터베이스 파일과 연결
-        cursor = con.cursor()
+#     return round(wei, 2)   # 정상체중 환산 값을 소수점 둘째 자리까지 반환.
 
-        cursor.execute("SELECT Breed FROM dog_data_m WHERE (minheight<=? and ? <=maxheight) and (minweight<=? and ?<=maxweight)",(height,height,weight, weight))
 
-        result = cursor.fetchall()
-        conn.commit()
-        conn.close()
-    else:
-        con = sqlite3.connect(r"/dog_data_f.db")   #암컷데이터베이스 파일과 연결
-        cursor = con.cursor()
+# def check_breed(sex, wei, hei):
+#     dogsex = sex
+#     height = hei
+#     weight = wei
 
-        cursor.execute("SELECT Breed FROM dog_data_f WHERE (minheight<=? and ? <=maxheight) and (minweight<=? and ?<=maxweight)",(height,height,weight, weight))
+#     if dogsex == 'male':
+#         con = sqlite3.connect(r"/dog_data_m.db")   #수컷데이터베이스 파일과 연결
+#         cursor = con.cursor()
 
-        result = cursor.fetchall()
-        conn.commit()
-        conn.close()
+#         cursor.execute("SELECT Breed FROM dog_data_m WHERE (minheight<=? and ? <=maxheight) and (minweight<=? and ?<=maxweight)",(height,height,weight, weight))
+
+#         result = cursor.fetchall()
+#         conn.commit()
+#         conn.close()
+#     else:
+#         con = sqlite3.connect(r"/dog_data_f.db")   #암컷데이터베이스 파일과 연결
+#         cursor = con.cursor()
+
+#         cursor.execute("SELECT Breed FROM dog_data_f WHERE (minheight<=? and ? <=maxheight) and (minweight<=? and ?<=maxweight)",(height,height,weight, weight))
+
+#         result = cursor.fetchall()
+#         conn.commit()
+#         conn.close()
     
-    return(result)
+#     return(result)
 
 
-# # 유기견 검색
-# @app.route('/search_data', methods=['GET', 'POST'])
-# def check_search():
-#     if request.method == 'POST':
-#         receipt_receive = request.form['receipt_give']
-#         db.order.update_one({'receipt_number': receipt_receive}, {'$set': {'order_state': True}})
+# 유기견 검색
+@app.route('/search_data', methods=['GET', 'POST'])
+def check_search():
+    if request.method == 'POST':
+        receipt_receive = request.form['receipt_give']
+        db.order.update_one({'receipt_number': receipt_receive}, {'$set': {'order_state': True}})
 
-#         return jsonify({'result': 'success', 'dog_data': result})
+        return jsonify({'result': 'success', 'dog_data': result})
 
-#     elif request.method == 'GET':
-#         result = list(db.dog.find({}, {'_id': 0}))
+    elif request.method == 'GET':
+        result = list(db.dog.find({}, {'_id': 0}))
 
-#         return jsonify({'result': 'success', 'dog_data': result})
+        return jsonify({'result': 'success', 'dog_data': result})
+
+
+# 유기견 포스트
+@app.route('/post_data', methods=['POST'])
+def get_post():
+    num_receive = request.form['num_give']
+
+    result = db.dog.find_one({'num': num_receive}, {'_id': 0})
+
+    return jsonify({'result': 'success', 'post_data': result})
+    
 
 
 if __name__ == '__main__':

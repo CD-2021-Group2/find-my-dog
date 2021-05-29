@@ -33,7 +33,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script defer src="{{url_for('static', filename='js/common.js')}}"></script>
-    <script defer src="{{url_for('static', filename='js/register_4.js')}}"></script>
+    <!-- <script defer src="{{url_for('static', filename='js/register_4.js')}}"></script> -->
+    <script defer src="{{url_for('static', filename='js/post.js')}}"></script>
 </head>
 
 <body>
@@ -47,8 +48,8 @@
                     <ul class="inner">
                         <li><a href="/">홈</a></li>
                         <li><a onclick="showMyPageAlert()">마이 페이지</a></li>
-                        <li><a href="/search">유기견 검색</a></li>
-                        <li><a onclick="showRegisterAlert()"></a></li>
+                        <li><a onclick="showSearchAlert()">유기견 검색</a></li>
+                        <li><a onclick="showRegisterAlert()">유기견 등록</a></li>
                         <li><a onclick="showSigninAlert()">로그인/회원가입</a></li>
                     </ul>
                 </div>
@@ -68,7 +69,6 @@
                     <div class="bul-1"></div>
                     <div class="bul-2"></div>
                     <div class="bul-3"></div>
-                    <div class="bul-4"></div>
                 </div>
             </div>
             <div class="register__card">
@@ -80,7 +80,7 @@
                         <h6>등록이 완료되었습니다.</h6>
                     </div>
                     <div class="btn-group">
-                        <a href="/search/post" class="btn btn--reverse">게시물 이동하기</a>
+                        <a onclick="getMyPostData()" class="btn btn--reverse">게시물 이동하기</a>
                         <a href="/mypage" class="btn btn--reverse">등록 수정하기</a>
                     </div>
                 </form>

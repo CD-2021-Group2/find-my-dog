@@ -34,6 +34,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script defer src="{{url_for('static', filename='js/common.js')}}"></script>
     <script defer src="{{url_for('static', filename='js/search.js')}}"></script>
+    <script defer src="{{url_for('static', filename='js/post.js')}}"></script>
 </head>
 
 <body>
@@ -47,8 +48,8 @@
                     <ul class="inner">
                         <li><a href="/">홈</a></li>
                         <li><a onclick="showMyPageAlert()">마이 페이지</a></li>
-                        <li><a href="/search">유기견 검색</a></li>
-                        <li><a onclick="showRegisterAlert()"></a></li>
+                        <li><a onclick="showSearchAlert()">유기견 검색</a></li>
+                        <li><a onclick="showRegisterAlert()">유기견 등록</a></li>
                         <li><a onclick="showSigninAlert()">로그인/회원가입</a></li>
                     </ul>
                 </div>
@@ -64,45 +65,45 @@
     <div class="black-bg hide"></div>
     <div class="search-modal hide">
         <h6 class="title">검색 조건 설정</h6>
-        <form>
+        <form onsubmit="getSearchData()">
             <div class="input-item">
                 <h6>품종</h6>
                 <select class="breed">
-                    <option valeu="all">전체</option>
-                    <option valeu="jindo">진돗개</option>
-                    <option valeu="pomeranian">포메라니안</option>
+                    <option value="all">전체</option>
+                    <option value="jindo">진돗개</option>
+                    <option value="pomeranian">포메라니안</option>
                 </select>
             </div>
             <div class="input-item">
                 <h6>성별</h6>
                 <select class="sex">
-                    <option valeu="all">전체</option>
-                    <option valeu="male">수컷</option>
-                    <option valeu="female">암컷</option>
+                    <option value="all">전체</option>
+                    <option value="male">수컷</option>
+                    <option value="female">암컷</option>
                 </select>
             </div>
             <div class="input-item">
                 <h6>나이</h6>
                 <select class="birth-year">
-                    <option valeu="all">전체</option>
-                    <option valeu="2021">2021</option>
-                    <option valeu="2020">2020</option>
+                    <option value="all">전체</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
                 </select>
             </div>
             <div class="input-item">
                 <h6>털색</h6>
                 <select class="color">
-                    <option valeu="all">전체</option>
-                    <option valeu="white">흰색</option>
-                    <option valeu="black">흑색</option>
+                    <option value="all">전체</option>
+                    <option value="white">흰색</option>
+                    <option value="black">흑색</option>
                 </select>
             </div>
             <div class="input-item">
                 <h6>지역</h6>
                 <select class="district">
-                    <option valeu="all">전체</option>
-                    <option valeu="seoul">서울</option>
-                    <option valeu="gyeongi">경기</option>
+                    <option value="all">전체</option>
+                    <option value="seoul">서울</option>
+                    <option value="gyeongi">경기</option>
                 </select>
             </div>
             <input id="modal-close-btn" type="submit" value="설정 완료">
@@ -117,7 +118,7 @@
                 <button id="modal-on-btn"><span class="material-icons">add_circle</span></button>
             </div>
             <div class="post-container">
-                <a class="post-box" href="/search/post">
+                <a class="post-box" value="서울-관악-2021-00183" onclick="getPostData(value)">
                     <img src="../../static/img/sample_dog.jpg" alt="000001">
                     <div class="description">
                         <div class="breed-tags">
@@ -149,7 +150,7 @@
                     </div>
                 </a>
 
-                <a class="post-box" href="/search/post">
+                <a class="post-box" value="서울-관악-2021-00183" onclick="getPostData(value)">
                     <img src="../../static/img/sample_dog.jpg" alt="000001">
                     <div class="description">
                         <div class="breed-tags">

@@ -39,7 +39,7 @@
 <body>
     <!-- MODAL -->
     <div class="black-bg hide"></div>
-    <div class="call-modal hide">
+    <div id="call-modal" class= "hide">
         <h6 class="title">입양 문의 연락처</h6>
         <div class="inner">
             <div class="contact">
@@ -59,8 +59,8 @@
                     <ul class="inner">
                         <li><a href="/">홈</a></li>
                         <li><a onclick="showMyPageAlert()">마이 페이지</a></li>
-                        <li><a href="/search">유기견 검색</a></li>
-                        <li><a onclick="showRegisterAlert()"></a></li>
+                        <li><a onclick="showSearchAlert()">유기견 검색</a></li>
+                        <li><a onclick="showRegisterAlert()">유기견 등록</a></li>
                         <li><a onclick="showSigninAlert()">로그인/회원가입</a></li>
                     </ul>
                 </div>
@@ -78,25 +78,25 @@
             <div class="register__card">
                 <form>
                     <div class="image-box-container">
-                        <img class="image-box" src="../../static/img/sample_dog.jpg" alt="dog-image">
+                        <img id="image-box" src="../../static/img/sample_dog.jpg" alt="dog-image">
                     </div>
-                    <div class="breed-tags">
+                    <div id="breed-tags">
                         <div class="tag">페키니즈</div>
                         <div class="tag">치와와</div>
                         <div class="tag">시츄</div>
                     </div>
-                    <div class="features">
+                    <div id="features">
                         <span class="sex">암컷</span>/<span class="color">베이지</span>/<span class="birthyear">2017</span>(년생)/<span class="weight">5.58</span>(kg)
                     </div>
                     <hr>
-                    <ul class="details">
+                    <ul id="details">
                         <li class="number">공고번호: <span>서울-관악-2021-00183</span></li>
                         <li class="date">공고기간: <span>2021-05-10 ~ 2021-05-20</span></li>
                         <li class="location">발견장소: <span>신림119안전센터앞</span></li>
                         <li class="shelter">보호센터: <span>러브펫종합동물병원</span></li>
                         <li class="note">특이사항: <span>파란색목줄착용, 순하고사람잘따름</span></li>
                     </ul>
-                    <div class="btn-group">
+                    <div id="btn-group">
                         <a id="modal-on-btn" href="#" class="btn btn--reverse">입양 문의하기</a>
                         <a href="/search" class="btn btn">다른 게시물 보기</a>
                     </div>

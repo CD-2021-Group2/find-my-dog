@@ -16,7 +16,7 @@
     margin-bottom: 20px;
 }
 
-.register__card form .image-box {
+#image-box {
     border-radius: 4px;
     width: 150px;
     height: 150px;
@@ -28,11 +28,11 @@
 }
 
 /* BREED-TAGS */
-.breed-tags {
+#breed-tags {
     display: flex;
 }
 
-.breed-tags .tag {
+#breed-tags .tag {
     font-size: 12px;
     color: #fff;
     border-radius: 4px;
@@ -42,12 +42,12 @@
     box-sizing: border-box;
 }
 
-.breed-tags div.tag:first-child {background: #F8807E;}
-.breed-tags div.tag:nth-child(2) { background: #FBA43A;}
-.breed-tags div.tag:last-child { background:  #26B395;}
+#breed-tags div.tag:first-child {background: #F8807E;}
+#breed-tags div.tag:nth-child(2) { background: #FBA43A;}
+#breed-tags div.tag:last-child { background:  #26B395;}
 
 /* FEATURES */
-.features {
+#features {
     font-size: 14px;
     color: #555;
     margin-bottom: 15px;
@@ -58,23 +58,23 @@ hr {
 }
 
 /* DETAILS */
-ul.details {
+#details {
     font-size: 12px;
     list-style-type: inherit;
     list-style-position: inside;
     margin: 15px 0px 30px;
 }
 
-ul.details li {
+#details li {
     margin-bottom: 7px;
 }
 
 /* BUTTON */
-.btn-group {
+#btn-group {
     margin: 0 auto 0;
 }
 
-.btn-group .btn {
+#btn-group .btn {
     margin: 10px auto 0;
     width: 100%;
 }
@@ -96,7 +96,7 @@ ul.details li {
     display: none;
 }
 
-.call-modal {
+#call-modal {
     display: block;
     background-color: #fefefe;
     border-radius: 4px;
@@ -112,33 +112,33 @@ ul.details li {
     z-index: 4;
 }
 
-.call-modal.hide {
+#call-modal.hide {
     display: none;
 }
 
-.call-modal h6 {
+#call-modal h6 {
     text-align: center;
     color: #006a4e;
     font-weight: 600;
     margin-bottom: 20px;
 }
 
-.call-modal .inner {
+#call-modal .inner {
     padding: 0px 40px;
     text-align: center;
 }
 
-.call-modal .contact div {
+#call-modal .contact div {
     margin-bottom: 5px;
     font-size: 14px;
     color: #555;
 }
 
-.call-modal .contact div.shelter {
+#call-modal .contact div.shelter {
     font-weight: 600;
 }
 
-.call-modal .inner a.btn.btn--reverse {
+#call-modal .inner a.btn.btn--reverse {
     width: 100%;
     padding: 10px;
     margin-top: 20px;

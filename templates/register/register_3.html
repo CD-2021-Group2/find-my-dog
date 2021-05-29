@@ -47,8 +47,8 @@
                     <ul class="inner">
                         <li><a href="/">홈</a></li>
                         <li><a onclick="showMyPageAlert()">마이 페이지</a></li>
-                        <li><a href="/search">유기견 검색</a></li>
-                        <li><a onclick="showRegisterAlert()"></a></li>
+                        <li><a onclick="showSearchAlert()">유기견 검색</a></li>
+                        <li><a onclick="showRegisterAlert()">유기견 등록</a></li>
                         <li><a onclick="showSigninAlert()">로그인/회원가입</a></li>
                     </ul>
                 </div>
@@ -68,11 +68,10 @@
                     <div class="bul-1"></div>
                     <div class="bul-2"></div>
                     <div class="bul-3"></div>
-                    <div class="bul-4"></div>
                 </div>
             </div>
             <div class="register__card">
-                <form onsubmit="postDogData()">
+                <form onsubmit="postRegisterData()">
                     <div class="input-group">
                         <div class="input-item">
                             <h6>공고번호</h6>
@@ -100,6 +99,10 @@
                             <input id="shel" type="text" placeholder="XX동물병원" />
                         </div>
                         <div class="input-item">
+                            <h6>전화번호</h6>
+                            <input id="tel" type="text" placeholder="010-XXXX-XXXX" />
+                        </div>
+                        <div class="input-item">
                             <h6>출생년도</h6>
                             <input id="byear" type="text" placeholder="20XX" />
                         </div>
@@ -113,7 +116,7 @@
                         </div>
                     </div>
                     <div class="btn-group">
-                        <a href="/register/2" class="btn btn--reverse">이전</a>
+                        <a href="/register" class="btn btn--reverse">이전</a>
                         <input class="btn btn--reverse" type="submit" value="다음">
                     </div>
                 </form>

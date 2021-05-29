@@ -46,6 +46,15 @@ function showMyPageAlert() {
     }
 }
 
+function showSearchAlert() {
+    if (signin_status == true) {
+        location.replace('/search');
+    } else {
+        alert('로그인이 필요한 페이지입니다.')
+        location.replace('/signin');
+    }
+}
+
 function showRegisterAlert() {
     if (signin_status == true) {
         location.replace('/register');

@@ -1,4 +1,4 @@
-function postDogData() {
+function postRegisterData() {
 	let img = localStorage.getItem('imgData');
 	let num = document.querySelector('#num').value;
 	let breed = localStorage.getItem('breedData');
@@ -10,6 +10,7 @@ function postDogData() {
 	let ddate = document.querySelector('#due-date').value;
 	let loc = document.querySelector('#loc').value;
 	let shel = document.querySelector('#shel').value;
+	let tel = document.querySelector('#tel').value;
 	let note = document.querySelector('#note').value;
 
 	$.ajax({
@@ -27,6 +28,7 @@ function postDogData() {
 			'ddate_give': ddate,
 			'loc_give': loc,
 			'shel_give': shel,
+			'tel_give': tel,
 			'note_give': note
 		},
 		success: function (response) {
@@ -36,7 +38,7 @@ function postDogData() {
 				localStorage.removeItem('imgData');
 				localStorage.removeItem('breedData');
 				localStorage.setItem('numData', num);
-				location.replace('/register/3');
+				location.replace('/register/4');
 			} else {
 				alert("데이터 저장 실패");
 			}
