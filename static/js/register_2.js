@@ -1,33 +1,27 @@
 $(document).ready(function () {
-    animateChart();
-    insertChartData();
+    insertRankData();
 });
 
-function animateChart() {
-    $('.percentage-bar').each(function () {
-        $(this).find('.bar').animate({
-            width: $(this).attr('data-percent')
-        }, 1000);
-    });
-}
-
-function insertChartData() {
+function insertRankData() {
     var image = document.getElementById('dog-img');
     var img_url = localStorage.getItem('imgData');
-    var breed_list = localStorage.getItem('breedData');
+    var breed_list = JSON.parse(localStorage.getItem('breedData'));
 
-    image.src = img_url;
+    image.src = "data:image/png;base64," + img_url;
 
-    $("#percentage-box").empty();
+    $("#ranking-box").empty();
+    console.log(breed_list[0]);
+    console.log(breed_list[1]);
+    console.log(breed_list[2]);
+
     for (let i = 0; i < breed_list.length; i++) {
-        let element = `<section class="percentage">
-                            <div class="title"><span>${breed_list[i]["breed"]}</span></div>
-                            <div class="percentage-bar" data-percent=${breed_list[i]["per"]}>
-                                <div class="bar"></div>
-                                <div class="percent">${breed_list[i]["per"]}</div>
-                            </div>
+        let num = i + 1;
+        let breed = breed_list[i];
+        let element = `<section class="ranking">
+                            <div class="rank-num">${num}</div>
+                            <div class="title"><span>${breed}</span></div>
                         </section>`
 
-        $("#percentage-box").append(element);
+        $("#ranking-box").append(element);
     }
 }

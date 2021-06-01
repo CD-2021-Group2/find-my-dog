@@ -15,7 +15,8 @@ client = MongoClient('localhost', 27017)
 db = client.dbFindMyDogTest
 
 # Mongo DB 초기화
-db.customer.delete_many({})
+# db.customer.delete_many({})
+# db.dog.delete_many({})
 
 # [HTML 주는 부분]
 
@@ -131,13 +132,19 @@ def post_register():
     tel_receive = request.form['tel_give']
     note_receive = request.form['note_give']
 
-    district = ... #num_receive에서 district만 분리해내기 (ex: 서울)
+    # 성별 한글 변환
+    if sex_receive == 'female':
+        sex = '암컷'
+    else:
+        sex = '수컷'
+
+    district = num_receive[0:2]
         
     dog_data = {
         'img': img_receive,
         'num': num_receive,
         'breed': breed_receive,
-        'sex': sex_receive,
+        'sex': sex,
         'wei': wei_receive,
         'b-year': byear_receive,
         'color': color_receive,
@@ -155,21 +162,23 @@ def post_register():
     return jsonify({'result': 'success'})
 
 
-# # 유기견 품종 분류
-# @app.route("/breed_data", methods=['POST'])
-# def post_breed():
-#     sex_receive = request.form['sex_give']
-#     hei_receive = request.form['hei_give']
-#     wei_receive = request.form['wei_give']
-#     bcs_receive = request.form['bcs_give']
+# 유기견 품종 분류
+@app.route("/breed_data", methods=['POST'])
+def post_breed():
+    sex_receive = request.form['sex_give']
+    hei_receive = request.form['hei_give']
+    wei_receive = request.form['wei_give']
+    bcs_receive = request.form['bcs_give']
 
-#     sex = sex_receive
-#     wei = cal_BCS(wei_receive, bcs_receive)
-#     hei = hei_receive
+    # sex = sex_receive
+    # wei = cal_BCS(wei_receive, bcs_receive)
+    # hei = hei_receive
 
-#     breed_data = check_breed(sex, wei, hei)
+    # breed_data = check_breed(sex, wei, hei)
 
-#     return jsonify({'result': 'success', 'breed_data': breed_data})
+    return jsonify({'result': 'success'})
+
+    # return jsonify({'result': 'success', 'breed_data': breed_data})
 
 
 # def cal_BCS(wei_receive, bcs_receive):

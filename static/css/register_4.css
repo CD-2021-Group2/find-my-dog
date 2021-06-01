@@ -11,12 +11,13 @@
 
 .main .inner .slide-pager .bul-1,
 .main .inner .slide-pager .bul-2,
-.main .inner .slide-pager .bul-3 {
+.main .inner .slide-pager .bul-3,
+.main .inner .slide-pager .bul-4 {
     width: 12px;
     height: 12px;
     margin-right: 6px;
     outline: none;
-    background-image: url("../images/slide_pager_on.png");
+    background-image: url("../img/slide_pager_on.png");
 }
 
 .register__card {

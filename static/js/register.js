@@ -1,3 +1,10 @@
+$(document).ready(function () {
+	localStorage.removeItem('weiData');
+	localStorage.removeItem('sexData');
+	localStorage.removeItem('imgData');
+	localStorage.removeItem('breedData');
+});
+
 function loadFile(event) {
 	var image = document.getElementById('output');
 
@@ -8,45 +15,57 @@ function loadFile(event) {
 }
 
 function postBreedData() {
-	let img = document.querySelector('#output').src;
-	let sex = document.querySelector('#sex').value;;
-	let hei = document.querySelector('#hei').value;;
-	let wei = document.querySelector('#wei').value;;
-	let bcs = document.querySelector('#bcs').value;;
+	let img = getBase64Image(document.querySelector('#output'));
+	let sex = document.querySelector('#sex').value;
+	let hei = document.querySelector('#hei').value;
+	let wei = document.querySelector('#wei').value;
+	let bcs = document.querySelector('#bcs').value;
 
-	localStorage.setItem('imgData', img)
-	localStorage.setItem('sexData', sex)
-	localStorage.setItem('weiData', wei)
+	localStorage.setItem('imgData', img);
+	localStorage.setItem('sexData', sex);
+	localStorage.setItem('weiData', wei);
 
-	// test 
-	let breed_final = ['테스트1', '테스트2', '테스트3']
+	$.ajax({
+		type: "POST",
+		url: "/breed_data",
+		data: {
+			'sex_give': sex,
+			'hei_give': hei,
+			'wei_give': wei,
+			'bcs_give': bcs
+		},
+		success: function (response) {
+			if (response["result"] == "success") {
+				// let breed_data = response["breed_data"];
+				// classifyBreeds(breed_data);
 
-	localStorage.setItem('breedData', breed_final)
-	location.replace('/register/3');
+				// test 
+				let breed_final = ['테스트1', '테스트2', '테스트3'];
+				localStorage.setItem('breedData', JSON.stringify(breed_final));
 
-	// $.ajax({
-	// 	type: "POST",
-	// 	url: "/breed_data",
-	// 	data: {
-	// 		'sex_give': sex,
-	// 		'hei_give': hei,
-	// 		'wei_give': wei,
-	// 		'bcs_give': bcs
-	// 	},
-	// 	success: function (response) {
-	// 		if (response["result"] == "success") {
-	// 			let breed_data = response["breed_data"];
-	// 			classifyBreeds(breed_data);
-	// 			location.replace('/register/3');
-	// 		} else {
-	// 			alert("데이터 출력 실패");
-	// 		}
-	// 	}
-	// })
+				location.replace('/register/2');
+			} else {
+				alert("데이터 출력 실패");
+			}
+		}
+	})
 }
 
-function classifyBreed(breed_data) {
-	let breed_data = breed_data;
+function getBase64Image(img) {
+	var canvas = document.createElement("canvas");
+	var ctx = canvas.getContext("2d");
+	canvas.width = img.naturalWidth;
+	canvas.height = img.naturalHeight;
 
-	localStorage.setItem('breedData', breed_final)
+	ctx.drawImage(img, 0, 0);
+
+	var dataURL = canvas.toDataURL("image/png");
+
+	return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 }
+
+// function classifyBreed(breed_data) {
+// 	let breed_data = breed_data;
+
+// 	localStorage.setItem('breedData', breed_final)
+// }

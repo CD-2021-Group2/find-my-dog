@@ -1,3 +1,7 @@
+$(document).ready(function () {
+    getSearchData();
+});
+
 // MODAL ON&OFF
 const modalEl = document.querySelector('.search-modal');
 const bgEl = document.querySelector('.black-bg');
@@ -15,10 +19,6 @@ modalOffBtn.addEventListener('click', function () {
 });
 
 // SEARCH
-// $(document).ready(function () {
-//     getSearchData();
-// });
-
 // function getSearchData() {
 
 

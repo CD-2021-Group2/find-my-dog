@@ -1,3 +1,9 @@
+$(document).ready(function () {
+    let my_num = localStorage.getItem('numData');
+    localStorage.removeItem('numData');
+    getPostData(my_num);
+});
+
 // MODAL ON&OFF
 const modalEl = document.querySelector('#call-modal');
 const bgEl = document.querySelector('.black-bg');
@@ -14,24 +20,15 @@ modalOffBtn.addEventListener('click', function () {
     modalEl.classList.add('hide');
 });
 
-function getMyPostData() {
-    let my_num = localStorage.getItem('numData');
-    localStorage.removeItem('numData');
-    getPostData(my_num);
-}
-
-function getPostData(num_select) {
-    let num = num_select;
-
+function getPostData(my_num) {
     $.ajax({
         type: "POST",
         url: "/post_data",
         data: {
-            'num_give': num
+            'num_give': my_num
         },
         success: function (response) {
             if (response["result"] == "success") {
-                location.replace('/search/post');
                 let post_data = response["post_data"];
                 insertPostData(post_data);
             } else {
@@ -45,7 +42,7 @@ function getPostData(num_select) {
 function insertPostData(post_data) {
     let img_url = post_data["img"];
     let num = post_data["num"];
-    let breed = post_data["breed"];
+    let breed = JSON.parse(post_data["breed"]);
     let sex = post_data["sex"];
     let wei = post_data["wei"];
     let b_year = post_data["b-year"];
@@ -59,7 +56,7 @@ function insertPostData(post_data) {
 
     // IMAGE
     let image = document.getElementById('image-box');
-    image.src = img_url;
+    image.src = "data:image/png;base64," + img_url;
 
     // BREED TAGS
     $("#breed-tags").empty();
