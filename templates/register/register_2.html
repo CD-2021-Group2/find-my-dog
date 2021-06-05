@@ -119,6 +119,200 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#ranking-box").empty();
+            
+            var image = document.getElementById('dog-img');
+            var img_url = localStorage.getItem('imgUrlData');
+            image.src = img_url;
+
+            localStorage.removeItem('breedData');
+            var breed_data = JSON.parse(localStorage.getItem('breedTempData'));
+            classifyBreed(breed_data);
+        });
+
+        // TM 모델 연결
+        const URL = "../../static/my_model/";
+        let model, webcam, labelContainer, maxPredictions;
+
+        async function classifyBreed(breed_data) {
+            // // 기존 init() 부분
+            const modelURL = URL + "model.json";
+            const metadataURL = URL + "metadata.json";
+
+            model = await tmImage.load(modelURL, metadataURL);
+            maxPredictions = model.getTotalClasses();
+
+            // 기존 predict() 부분
+            var image = document.getElementById("dog-img");
+            const prediction = await model.predict(image, false);
+
+            //TM 모델 결과값들을 key(품종 목록): value(퍼센트) 형태로 저장
+            var dict = {};
+            for (let i = 0; i < maxPredictions; i++) {
+                dict[prediction[i].className] = prediction[i].probability.toFixed(2);
+
+            }
+
+            //퍼센트 내림차순 정렬
+            var sortable = [];
+            for (var i in dict) {
+                sortable.push([i, dict[i]]);
+            }
+
+            sortable.sort(function (a, b) {
+                return b[1] - a[1];
+            });
+
+            var dictObject = {};
+            for (let i = 0; i < sortable.length; i++) {
+                var first = sortable[i];
+                dictObject[first[0]] = first[1];
+            }
+
+
+            //dictObject 객체에서 퍼센테이지가 0인 품종 목록들 삭제
+            for (var zero in dictObject) {
+                if (dictObject[zero] == 0.00) {
+                    delete dictObject[zero];
+                }
+            }
+
+            console.log(dictObject);
+
+            //데이터베이스에서 추출한 값
+            var a = {};
+            for (let i = 0; i < breed_data.length; i++) {
+                a[breed_data[i]] = '';
+            }
+
+            console.log(a);
+
+
+            var later = {}; // 추후 데이터베이스에서 추출한 값과 이름이 같은 것들만 저장할 부분
+            // db에서 전달받은 품종 목록과 dictObject의 각 요소를 비교하여 품종 목록이 같은 요소만 추출하여 새로운 객체 later에 저장하는 부분입니다.    
+            for (let i = 0; i < Object.keys(a).length; i++) {
+                const curr = Object.keys(a)[i];
+                for (let j = 0; j < Object.keys(dictObject).length; j++) {
+                    if (curr == Object.keys(dictObject)[j]) {
+                        later[Object.keys(dictObject)[j]] = dictObject[Object.keys(dictObject)[j]];
+                    }
+                }
+            }
+
+            //추출된 later을 다시 내림차순 정렬하는 부분입니다. 로직은 위의 배열-객체 전환 로직과 동일합니다.
+            var sortable2 = [];
+
+            for (var keys in later) {
+                sortable2.push([keys, later[keys]]);
+            }
+            sortable2.sort(function (a, b) {
+                return b[1] - a[1];
+            });
+
+            //내림차순 정렬된 객체 c는 최종적으로 출력에 사용할 객체입니다.
+            var c = {};
+            for (let i = 0; i < sortable2.length; i++) {
+                var sec = sortable2[i];
+                c[sec[0]] = sec[1];
+            }
+
+            console.log(c);
+
+            // 여기서부터 출력과 관련된 코드입니다.
+            var breed_final = [];
+
+            //객체 c의 요소가 3개 이상이라면 가장 처음 3개 요소를 추출합니다.
+            if (Object.keys(c).length >= 3) {
+                for (let i = 0; i < 3; i++) {
+                    const dictc = Object.keys(c)[i] + ":" + dictObject[Object.keys(dictObject)[i]];
+                    console.log(dictc);
+                    breed_final.push(dictc);
+                }
+            }
+
+            //객체 c의 요소가 3개 이하인 부분으로 3가지로 나눠집니다. 
+            else {
+                if (Object.keys(c).length == 0) { //c의 요소가 0개인 경우 : tm 모델에서 가장 높은 값 3개를 가져와 그대로 추출합니다.         
+                    for (let i = 0; i < 3; i++) {
+                        if (Object.keys(c)[i] != undefined) {
+                            const dictObj = Object.keys(dictObject)[i];
+                            console.log(dictObj);
+                            breed_final.push(dictObj);
+                        }
+                    }
+
+                } else if (Object.keys(c).length ==
+                    1) { //c의 요소가 1개인 경우 : tm모델 품종 목록에서 c와 동일한 요소를 삭제한 후 가장 상위 요소 2개를 추가로 추출합니다.
+                    var cfirst = c[0];
+                    delete dictObject[cfirst];
+
+                    for (let i = 0; i < 2; i++) {
+                        c[Object.keys(dictObject)[i]] = dictObject[Object.keys(dictObject)[i]];
+
+                    }
+                    //예외처리
+                    for (var def in c) {
+                        if (typeof (c[def]) === "undefined") {
+                            delete c[def];
+                        }
+                    }
+
+                    for (let i = 0; i < Object.keys(c).length; i++) {
+
+                        const dictc1 = Object.keys(c)[i];
+                        console.log(dictc1);
+                        breed_final.push(dictc1);
+                    }
+
+                } else { // c의 요소가 2개인 경우: 마찬가지로 tm 모델 품종 목록에서 c와 동일한 요소들을 삭제한 후 가장 상위 요소 1개를 추출합니다.
+                    var cfirst = c[0];
+                    var csecond = c[1];
+                    delete dictObject[cfirst];
+                    delete dictObject[csecond];
+
+                    c[Object.keys(dictObject)[0]] = dictObject[Object.keys(dictObject)[0]];
+                    //예외처리
+                    for (var def in c) {
+                        if (typeof (c[def]) === "undefined") {
+                            delete c[def];
+                        }
+                    }
+
+                    for (let i = 0; i < Object.keys(c).length; i++) {
+
+                        const dictc2 = Object.keys(c)[i];
+                        console.log(dictc2);
+                        breed_final.push(dictc2);
+                    }
+
+                }
+            }
+
+            console.log(breed_final);
+            localStorage.setItem('breedData', JSON.stringify(breed_final));
+            insertRankData(breed_final);
+        }
+
+        // 랭크 삽입
+        function insertRankData(breed_list) {
+            console.log(breed_list);
+
+            for (let i = 0; i < breed_list.length; i++) {
+                let num = i + 1;
+                let breed = breed_list[i];
+                let element = `<section class="ranking">
+                            <div class="rank-num">${num}</div>
+                            <div class="title"><span>${breed}</span></div>
+                        </section>`
+
+                $("#ranking-box").append(element);
+            }
+        }
+    </script>
 </body>
 
 </html>

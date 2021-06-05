@@ -59,7 +59,8 @@
     font-size: 14px;
 }
 
-.register__card form .input-group .input-item [type="text"] {
+.register__card form .input-group .input-item [type="text"],
+.register__card form .input-group .input-item select {
     width: 65%;
     margin: 12px 5px;
     padding: 11px;

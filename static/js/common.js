@@ -24,6 +24,7 @@ function changeSigninStatus() {
         signinStatusEl.innerHTML = '';
         let element = `로그인`
         signinStatusEl.append(element);
+        location.replace('/');
     } else {
         location.replace('/signin');
     }

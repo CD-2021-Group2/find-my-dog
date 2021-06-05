@@ -40,7 +40,6 @@ function getPostData(my_num) {
 }
 
 function insertPostData(post_data) {
-    let img_url = post_data["img"];
     let num = post_data["num"];
     let breed = JSON.parse(post_data["breed"]);
     let sex = post_data["sex"];
@@ -53,17 +52,17 @@ function insertPostData(post_data) {
     let shel = post_data["shel"];
     let tel = post_data["tel"];
     let note = post_data["note"];
-
+    
     // IMAGE
     let image = document.getElementById('image-box');
-    image.src = "data:image/png;base64," + img_url;
+    image.src = "../../static/uploads/"+num+".jpg"
 
     // BREED TAGS
     $("#breed-tags").empty();
-    let breed_element = `<div class="tag">${breed[0]}</div>
-                    <div class="tag">${breed[1]}</div>
-                    <div class="tag">${breed[2]}</div>`;
-    $("#breed-tags").append(breed_element);
+    for(let i=0; i < breed.length; i++) {
+        let breed_element = `<div class="tag">${breed[i]}</div>`;
+        $("#breed-tags").append(breed_element);
+    }
 
     // FEATURES
     $("#features").empty();

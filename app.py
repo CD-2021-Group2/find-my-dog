@@ -1,22 +1,16 @@
 import sqlite3
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 from pymongo import MongoClient
+import os
+import json
 
 app = Flask(__name__)
 
 # [초기 DB 설정하는 부분]
 
-# SQLite
-# conn = sqlite3.connet('dog_data_f')
-# conn = sqlite3.connet('dog_data_m')
-
 # Mongo DB
 client = MongoClient('localhost', 27017)
 db = client.dbFindMyDogTest
-
-# Mongo DB 초기화
-# db.customer.delete_many({})
-# db.dog.delete_many({})
 
 # [HTML 주는 부분]
 
@@ -68,7 +62,7 @@ def post():
 def get_dog_number():
     registered_dog = db.dog.find({}, {'_id': 0})
     result = registered_dog.count()
-    result = str(format(test, ","))
+    result = str(format(result, ","))
 
     return jsonify({'result': 'success', 'dog_number': result})
 
@@ -118,7 +112,6 @@ def post_signin():
 # 유기견 등록
 @app.route('/register_data', methods=['POST'])
 def post_register():
-    img_receive = request.form['img_give']
     num_receive = request.form['num_give']
     breed_receive = request.form['breed_give']
     sex_receive = request.form['sex_give']
@@ -141,25 +134,37 @@ def post_register():
     district = num_receive[0:2]
         
     dog_data = {
-        'img': img_receive,
+        'dist': district,
         'num': num_receive,
         'breed': breed_receive,
-        'sex': sex,
-        'wei': wei_receive,
-        'b-year': byear_receive,
         'color': color_receive,
-        'reg-date': rdate_receive,
-        'due-date': ddate_receive,
+        'sex': sex,
+        'b-year': byear_receive,
+        'wei': wei_receive,
         'loc': loc_receive,
+        'note': note_receive,
         'shel': shel_receive,
         'tel': tel_receive,
-        'note': note_receive,
-        'dist': district
+        'reg-date': rdate_receive,
+        'due-date': ddate_receive
     }
+
+    print(dog_data)
         
     db.dog.insert_one(dog_data)
 
-    return jsonify({'result': 'success'})
+    # 이미지 업로드
+    UPLOAD_FOLDER = 'static/uploads/'
+    app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+    uploaded_file = request.files['file']
+
+    if uploaded_file.filename != '':
+        path = os.path.join(app.config['UPLOAD_FOLDER'], uploaded_file.filename)
+        uploaded_file.save(path)
+        return jsonify({'result': 'success'})
+    else:
+        return jsonify({'result': 'fail'})
 
 
 # 유기견 품종 분류
@@ -170,72 +175,91 @@ def post_breed():
     wei_receive = request.form['wei_give']
     bcs_receive = request.form['bcs_give']
 
-    # sex = sex_receive
-    # wei = cal_BCS(wei_receive, bcs_receive)
-    # hei = hei_receive
+    sex = sex_receive
+    wei = cal_BCS(int(wei_receive), bcs_receive)
+    hei = int(hei_receive)
 
-    # breed_data = check_breed(sex, wei, hei)
+    breed_data = check_breed(sex, wei, hei)
+    arr = [x[0] for x in breed_data]
 
-    return jsonify({'result': 'success'})
+    print(arr)
 
-    # return jsonify({'result': 'success', 'breed_data': breed_data})
-
-
-# def cal_BCS(wei_receive, bcs_receive):
-#     if bcs_receive == 'bcs-1':
-#         wei = wei_receive*19/16
-#     elif bcs_receive == 'bcs-2':
-#         wei = wei_receive*8/9
-#     elif bcs_receive == 'bcs-4':
-#         wei = wei_receive*7/8
-#     elif bcs_receive == 'bcs-5':
-#         wei = wei_receive*3/4
-#     else:
-#         wei = wei_receive
-
-#     return round(wei, 2)   # 정상체중 환산 값을 소수점 둘째 자리까지 반환.
+    return jsonify({'result': 'success', 'breed_data': arr})
 
 
-# def check_breed(sex, wei, hei):
-#     dogsex = sex
-#     height = hei
-#     weight = wei
+def cal_BCS(wei_receive, bcs_receive):
+    if bcs_receive == 'bcs-1':
+        wei = wei_receive*19/16
+    elif bcs_receive == 'bcs-2':
+        wei = wei_receive*8/9
+    elif bcs_receive == 'bcs-4':
+        wei = wei_receive*7/8
+    elif bcs_receive == 'bcs-5':
+        wei = wei_receive*3/4
+    else:
+        wei = wei_receive
 
-#     if dogsex == 'male':
-#         con = sqlite3.connect(r"/dog_data_m.db")   #수컷데이터베이스 파일과 연결
-#         cursor = con.cursor()
+    return round(wei, 2)   # 정상체중 환산 값을 소수점 둘째 자리까지 반환.
 
-#         cursor.execute("SELECT Breed FROM dog_data_m WHERE (minheight<=? and ? <=maxheight) and (minweight<=? and ?<=maxweight)",(height,height,weight, weight))
 
-#         result = cursor.fetchall()
-#         conn.commit()
-#         conn.close()
-#     else:
-#         con = sqlite3.connect(r"/dog_data_f.db")   #암컷데이터베이스 파일과 연결
-#         cursor = con.cursor()
+def check_breed(sex, wei, hei):
+    dogsex = sex
+    height = hei
+    weight = wei
 
-#         cursor.execute("SELECT Breed FROM dog_data_f WHERE (minheight<=? and ? <=maxheight) and (minweight<=? and ?<=maxweight)",(height,height,weight, weight))
+    conn = sqlite3.connect('dog_f')
+    conn = sqlite3.connect('dog_me')
 
-#         result = cursor.fetchall()
-#         conn.commit()
-#         conn.close()
+    if dogsex == 'male':
+        con = sqlite3.connect(r"db/dog_me.db")   #수컷데이터베이스 파일과 연결
+        cursor = con.cursor()
+
+        cursor.execute("SELECT Breed FROM dog_me WHERE (minheight<=? and ? <=maxheight) and (minweight<=? and ?<=maxweight)",(height,height,weight, weight))
+
+        result = cursor.fetchall()
+        conn.commit()
+        conn.close()
+    else:
+        con = sqlite3.connect(r"db/dog_f.db")   #암컷데이터베이스 파일과 연결
+        cursor = con.cursor()
+
+        cursor.execute("SELECT Breed FROM dog_f WHERE (minheight<=? and ? <=maxheight) and (minweight<=? and ?<=maxweight)",(height,height,weight, weight))
+
+        result = cursor.fetchall()
+        conn.commit()
+        conn.close()
     
-#     return(result)
+    return(result)
 
 
 # 유기견 검색
-@app.route('/search_data', methods=['GET', 'POST'])
+@app.route('/search_data', methods=['POST'])
 def check_search():
-    if request.method == 'POST':
-        receipt_receive = request.form['receipt_give']
-        db.order.update_one({'receipt_number': receipt_receive}, {'$set': {'order_state': True}})
+    opts_receive = request.form['opts_give']
 
-        return jsonify({'result': 'success', 'dog_data': result})
+    if opts_receive == '0':
+        result = list(db.dog.find({}, {'_id': 0}).sort('reg-date', -1))
 
-    elif request.method == 'GET':
-        result = list(db.dog.find({}, {'_id': 0}))
+        return jsonify({'result': 'success', 'search_data': result})
+    else:
+        opts = json.loads(opts_receive)
+        opts_k = list(opts.keys())
+        opts_v = list(opts.values())
+        opts_num = len(opts_k)
 
-        return jsonify({'result': 'success', 'dog_data': result})
+        if opts_num == 1:
+            result = list(db.dog.find({opts_k[0]: {"$regex": opts_v[0]}}, {'_id': 0}).sort('reg-date', -1))
+        elif opts_num == 2:
+            result = list(db.dog.find({opts_k[0]: {"$regex": opts_v[0]}, opts_k[1]: {"$regex": opts_v[1]}}, {'_id': 0}).sort('reg-date', -1))
+        elif opts_num == 3:
+            result = list(db.dog.find({opts_k[0]: {"$regex": opts_v[0]}, opts_k[1]: {"$regex": opts_v[1]}, opts_k[2]: {"$regex": opts_v[2]}}, {'_id': 0}).sort('reg-date', -1))
+        elif opts_num == 4:
+            result = list(db.dog.find({opts_k[0]: {"$regex": opts_v[0]}, opts_k[1]: {"$regex": opts_v[1]}, opts_k[2]: {"$regex": opts_v[2]}, opts_k[3]: {"$regex": opts_v[3]}}, {'_id': 0}).sort('reg-date', -1))
+        else:
+            result = list(db.dog.find({opts_k[0]: {"$regex": opts_v[0]}, opts_k[1]: {"$regex": opts_v[1]}, opts_k[2]: {"$regex": opts_v[2]}, opts_k[3]: {"$regex": opts_v[3]}, opts_k[4]: {"$regex": opts_v[4]}}, {'_id': 0}).sort('reg-date', -1))
+
+        return jsonify({'result': 'success', 'search_data': result})   
+
 
 
 # 유기견 포스트

@@ -65,60 +65,165 @@
     <div class="black-bg hide"></div>
     <div class="search-modal hide">
         <h6 class="title">검색 조건 설정</h6>
-        <form onsubmit="getSearchData()">
+        <div class="form">
             <div class="input-item">
                 <h6>품종</h6>
-                <select class="breed">
+                <select id="breed">
                     <option value="all">전체</option>
-                    <option value="jindo">진돗개</option>
-                    <option value="pomeranian">포메라니안</option>
+                    <option value="골든 리트리버">골든 리트리버</option>
+                    <option value="그레이트 피레니즈">그레이트 피레니즈</option>
+                    <option value="꼬똥드툴레아">꼬똥드툴레아</option>
+                    <option value="닥스훈트">닥스훈트</option>
+                    <option value="도베르만">도베르만</option>
+                    <option value="라사 압소">라사 압소</option>
+                    <option value="래브라도 리트리버">래브라도 리트리버</option>
+                    <option value="로트와일러">로트와일러</option>
+                    <option value="말티즈">말티즈</option>
+                    <option value="미니어쳐 슈나우저">미니어쳐 슈나우저</option>
+                    <option value="미니어쳐 푸들">미니어쳐 푸들</option>
+                    <option value="미니어쳐 핀셔">미니어쳐 핀셔</option>
+                    <option value="바센지">바센지</option>
+                    <option value="바셋 하운드">바셋 하운드</option>
+                    <option value="버니즈 마운틴 독">버니즈 마운틴 독</option>
+                    <option value="베들링턴 테리어">베들링턴 테리어</option>
+                    <option value="보더 콜리">보더 콜리</option>
+                    <option value="보르조이">보르조이</option>
+                    <option value="보스턴테리어">보스턴테리어</option>
+                    <option value="불독">불독</option>
+                    <option value="불테리어">불테리어</option>
+                    <option value="브리타니 스파니엘">브리타니 스파니엘</option>
+                    <option value="비글">비글</option>
+                    <option value="비숑 프리제">비숑 프리제</option>
+                    <option value="빠삐용">빠삐용</option>
+                    <option value="사모예드">사모예드</option>
+                    <option value="삽살개">삽살개</option>
+                    <option value="샤페이">샤페이</option>
+                    <option value="세인트 버나드">세인트 버나드</option>
+                    <option value="셔틀랜드 쉽독">셔틀랜드 쉽독</option>
+                    <option value="스탠다드 슈나우저">스탠다드 슈나우저</option>
+                    <option value="스탠다드 푸들">스탠다드 푸들</option>
+                    <option value="시바견">시바견</option>
+                    <option value="시베리안 라이카">시베리안 라이카</option>
+                    <option value="시베리안 허스키">시베리안 허스키</option>
+                    <option value="시츄">시츄</option>
+                    <option value="실키 테리어">실키 테리어</option>
+                    <option value="아메리칸 코카 스파니엘">아메리칸 코카 스파니엘</option>
+                    <option value="알래스카 말라뮤트">알래스카 말라뮤트</option>
+                    <option value="올드 잉글리시 쉽독">올드 잉글리시 쉽독</option>
+                    <option value="요크셔테리어">요크셔테리어</option>
+                    <option value="웨스트 하이랜드 화이트 테리어">웨스트 하이랜드 화이트 테리어</option>
+                    <option value="잉글리시 코커 스파니엘">잉글리시 코커 스파니엘</option>
+                    <option value="자이언트 슈나우저">자이언트 슈나우저</option>
+                    <option value="재패니즈 스피츠">재패니즈 스피츠</option>
+                    <option value="재패니즈 친">재패니즈 친</option>
+                    <option value="잭 러셀 테리어">잭 러셀 테리어</option>
+                    <option value="저먼 셰퍼드">저먼 셰퍼드</option>
+                    <option value="진돗개">진돗개</option>
+                    <option value="차우 차우">차우 차우</option>
+                    <option value="치와와">치와와</option>
+                    <option value="카디건 웰시코기">카디건 웰시코기</option>
+                    <option value="케인코르소">케인코르소</option>
+                    <option value="콜리">콜리</option>
+                    <option value="토이 푸들">토이 푸들</option>
+                    <option value="퍼그">퍼그</option>
+                    <option value="페키니즈">페키니즈</option>
+                    <option value="펨브록 웰시코기">펨브록 웰시코기</option>
+                    <option value="포메라니안">포메라니안</option>
+                    <option value="풍산개">풍산개</option>
+                    <option value="프렌치 불독">프렌치 불독</option>
+                    <option value="휘핏">휘핏</option>
                 </select>
             </div>
             <div class="input-item">
                 <h6>성별</h6>
-                <select class="sex">
+                <select id="sex">
                     <option value="all">전체</option>
-                    <option value="male">수컷</option>
-                    <option value="female">암컷</option>
+                    <option value="수컷">수컷</option>
+                    <option value="암컷">암컷</option>
                 </select>
             </div>
             <div class="input-item">
                 <h6>나이</h6>
-                <select class="birth-year">
+                <select id="birth-year">
                     <option value="all">전체</option>
                     <option value="2021">2021</option>
                     <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
+                    <option value="2009">2009</option>
+                    <option value="2008">2008</option>
+                    <option value="2007">2007</option>
+                    <option value="2006">2006</option>
+                    <option value="2005">2005</option>
+                    <option value="2004">2004</option>
+                    <option value="2003">2003</option>
+                    <option value="2002">2002</option>
+                    <option value="2001">2001</option>
                 </select>
             </div>
             <div class="input-item">
                 <h6>털색</h6>
-                <select class="color">
+                <select id="color">
                     <option value="all">전체</option>
-                    <option value="white">흰색</option>
-                    <option value="black">흑색</option>
+                    <option value="흰색">흰색</option>
+                    <option value="크림색">크림색</option>
+                    <option value="갈색">갈색</option>
+                    <option value="회색">회색</option>
+                    <option value="검정색">검정색</option>
+                    <option value="흰갈색">흰갈색</option>
+                    <option value="흰회색">흰회색</option>
+                    <option value="흰검색">흰검색</option>
+                    <option value="검갈색">검갈색</option>
+                    <option value="검회색">검회색</option>
                 </select>
             </div>
             <div class="input-item">
                 <h6>지역</h6>
-                <select class="district">
+                <select id="district">
                     <option value="all">전체</option>
-                    <option value="seoul">서울</option>
-                    <option value="gyeongi">경기</option>
+                    <option value="강원">강원</option>
+                    <option value="경기">경기</option>
+                    <option value="경남">경남</option>
+                    <option value="경북">경북</option>
+                    <option value="광주">광주</option>
+                    <option value="대구">대구</option>
+                    <option value="대전">대전</option>
+                    <option value="부산">부산</option>
+                    <option value="서울">서울</option>
+                    <option value="세종">세종</option>
+                    <option value="울산">울산</option>
+                    <option value="인천">인천</option>
+                    <option value="전남">전남</option>
+                    <option value="전북">전북</option>
+                    <option value="제주">제주</option>
+                    <option value="충남">충남</option>
+                    <option value="충북">충북</option>
                 </select>
             </div>
-            <input id="modal-close-btn" type="submit" value="설정 완료">
-        </form>
+            <button id="modal-close-btn">설정 완료</button>
+            <!-- <input id="modal-close-btn" type="submit" value="설정 완료"> -->
+        </div>
     </div>
 
     <!-- MAIN -->
     <section class="main">
         <div class="inner">
             <div class="search-box">
-                <div class="key-word all">전체</div>
-                <button id="modal-on-btn"><span class="material-icons">add_circle</span></button>
+                <div id="keyword-box">
+                    <div class="key-word">전체</div>
+                    <button id="modal-on-btn"><span class="material-icons">add_circle</span></button>
+                </div>
             </div>
             <div class="post-container">
-                <a class="post-box" value="서울-관악-2021-00183" onclick="getPostData(value)">
+                <a class="post-box" id="서울-관악-2021-00183" onclick="getMyPostData(this.id)">
                     <img src="../../static/img/sample_dog.jpg" alt="000001">
                     <div class="description">
                         <div class="breed-tags">
@@ -127,8 +232,8 @@
                             <div class="tag">시츄</div>
                         </div>
                         <ul class="details">
+                            <li class="num"><span>서울-관악-2021-00183</span></li>
                             <li class="reg-date">등록일: <span>2021-05-10</span></li>
-                            <li class="district">지역: <span>서울 관악</span></li>
                             <li class="rescue-loc">구조장소: <span>신림119안전센터앞</span></li>
                         </ul>
                     </div>

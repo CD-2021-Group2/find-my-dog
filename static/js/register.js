@@ -1,8 +1,9 @@
 $(document).ready(function () {
 	localStorage.removeItem('weiData');
 	localStorage.removeItem('sexData');
-	localStorage.removeItem('imgData');
+	localStorage.removeItem('imgUrlData');
 	localStorage.removeItem('breedData');
+	localStorage.removeItem('breedTempData');
 });
 
 function loadFile(event) {
@@ -11,17 +12,17 @@ function loadFile(event) {
 	$(".image-box").remove();
 	image.classList.remove('hide');
 	image.src = URL.createObjectURL(event.target.files[0]);
-
 }
 
 function postBreedData() {
 	let img = getBase64Image(document.querySelector('#output'));
+	let img_url = "data:image/png;base64," + img;
 	let sex = document.querySelector('#sex').value;
 	let hei = document.querySelector('#hei').value;
 	let wei = document.querySelector('#wei').value;
 	let bcs = document.querySelector('#bcs').value;
 
-	localStorage.setItem('imgData', img);
+	localStorage.setItem('imgUrlData', img_url);
 	localStorage.setItem('sexData', sex);
 	localStorage.setItem('weiData', wei);
 
@@ -36,13 +37,8 @@ function postBreedData() {
 		},
 		success: function (response) {
 			if (response["result"] == "success") {
-				// let breed_data = response["breed_data"];
-				// classifyBreeds(breed_data);
-
-				// test 
-				let breed_final = ['테스트1', '테스트2', '테스트3'];
-				localStorage.setItem('breedData', JSON.stringify(breed_final));
-
+				let breed_data = response["breed_data"];
+				localStorage.setItem('breedTempData', JSON.stringify(breed_data));
 				location.replace('/register/2');
 			} else {
 				alert("데이터 출력 실패");
@@ -64,8 +60,3 @@ function getBase64Image(img) {
 	return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 }
 
-// function classifyBreed(breed_data) {
-// 	let breed_data = breed_data;
-
-// 	localStorage.setItem('breedData', breed_final)
-// }

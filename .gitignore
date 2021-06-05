@@ -3,3 +3,5 @@
 .vscode
 
 get-pip.py
+
+sql.py

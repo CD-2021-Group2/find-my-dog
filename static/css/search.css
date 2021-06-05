@@ -47,11 +47,11 @@
     margin-bottom: 20px;
 }
 
-.search-modal form {
+.search-modal .form {
     padding: 15px 40px;
 }
 
-.search-modal form .input-item {
+.search-modal .form .input-item {
     display: flex;
     width: 100%;
     position: relative;
@@ -59,13 +59,13 @@
     align-items: center;
 }
 
-.search-modal form .input-item h6 {
+.search-modal .form .input-item h6 {
     font-size: 14px;
     font-weight: 600;
     margin-right: 10px;
 }
 
-.search-modal form .input-item select {
+.search-modal .form .input-item select {
     width: 80%;
     position: absolute;
     right: 0px;
@@ -79,7 +79,7 @@
     color: #555;
 }
 
-.search-modal form [type=submit] {
+#modal-close-btn {
     width: 100%;
     margin: 5px 0px 0px;
     padding: 12px;
@@ -93,23 +93,47 @@
     cursor: pointer;
 }
 
+/* .search-modal form [type=submit] {
+    width: 100%;
+    margin: 5px 0px 0px;
+    padding: 12px;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #006a4e;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+} */
+
 /* SEARCH-BOX */
 .search-box {
     display: flex;
     align-items: center;
-    width: 100%;
-    padding: 20px 10px;
+    width: 358px;
+    height: auto;
+    padding: 10px 10px;
     box-sizing: border-box;
+    white-space: nowrap;
 }
 
-.search-box .key-word {
+#keyword-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#keyword-box .key-word {
     border: 1px solid #006a4e;
     color: #006a4e;
     font-weight: 600;
     font-size: 14px;
     border-radius: 4px;
     padding: 5px 10px;
-    margin-right: 10px;
+    margin: 5px 5px;
+    height: 30px;
+    width: auto;
     box-sizing: border-box;
 }
 
@@ -167,6 +191,7 @@
 
 .post-container .post-box .description .breed-tags {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .post-container .post-box .description .breed-tags div.tag {
@@ -175,7 +200,10 @@
     border-radius: 4px;
     padding: 4px 6px;
     box-sizing: border-box;
-    margin-right: 5px;
+    margin-top: 4px;
+    margin-right: 3px;
+    height: 27px;
+    width: auto;
 }
 
 .breed-tags div.tag:first-child {
@@ -186,15 +214,22 @@
     background: #FBA43A;
 }
 
-.breed-tags div.tag:last-child {
+.breed-tags div.tag:nth-child(3){
     background: #26B395;
 }
 
 .post-container .post-box .description ul.details {
-    font-size: 14px;
+    font-size: 13px;
     margin: 15px 0px 0px 5px;
 }
 
 .post-container .post-box .description ul.details li {
     margin-bottom: 5px;
 }
+
+.post-container .post-box .description ul.details li.num {
+    font-size: 13px;
+    color: #006a4e;
+    font-weight: 800;
+}
+

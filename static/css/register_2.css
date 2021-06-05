@@ -113,7 +113,7 @@
 
 section.ranking:first-child div.title {background: #F8807E;}
 section.ranking:nth-child(2) div.title { background: #FBA43A;}
-section.ranking:last-child div.title { background:  #26B395;}
+section.ranking:nth-child(3) div.title { background:  #26B395;}
 
 
 /* BUTTON */
