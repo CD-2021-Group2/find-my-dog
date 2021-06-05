@@ -223,7 +223,7 @@ def check_breed(sex, wei, hei):
         con = sqlite3.connect(r"db/dog_f.db")   #암컷데이터베이스 파일과 연결
         cursor = con.cursor()
 
-        cursor.execute("SELECT Breed FROM dog_f WHERE (minheight<=? and ? <=maxheight) and (minweight<=? and ?<=maxweight)",(height,height,weight, weight))
+        cursor.execute("SELECT Breed FROM dog_fe WHERE (minheight<=? and ? <=maxheight) and (minweight<=? and ?<=maxweight)",(height,height,weight, weight))
 
         result = cursor.fetchall()
         conn.commit()
