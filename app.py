@@ -176,8 +176,8 @@ def post_breed():
     bcs_receive = request.form['bcs_give']
 
     sex = sex_receive
-    wei = cal_BCS(int(wei_receive), bcs_receive)
-    hei = int(hei_receive)
+    wei = cal_BCS(float(wei_receive), bcs_receive)
+    hei = float(hei_receive)
 
     breed_data = check_breed(sex, wei, hei)
     arr = [x[0] for x in breed_data]

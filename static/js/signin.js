@@ -11,7 +11,6 @@ function postSigninData() {
         },
         success: function (response) {
             if (response["result"] == "success") {
-                alert("로그인 성공");
                 localStorage.setItem('signinId', id)
                 location.replace('/');
             } else {
