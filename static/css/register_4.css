@@ -1,0 +1,81 @@
+/* REGISTER_4 */
+.main .inner .slide-pager-container {
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px 15px;
+}
+
+.main .inner .slide-pager {
+    display: flex;
+}
+
+.main .inner .slide-pager .bul-1,
+.main .inner .slide-pager .bul-2,
+.main .inner .slide-pager .bul-3,
+.main .inner .slide-pager .bul-4 {
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    outline: none;
+    background-image: url("../img/slide_pager_on.png");
+}
+
+.register__card {
+    /* background-color: lightcoral; */
+    width: 300px;
+    margin: 0 auto;
+}
+
+.register__card form {
+    padding: 15px 22px;
+}
+
+/* COMPLETE-MESSAGE */
+.register__card form .complete-message {
+    display: block;
+    justify-content: center;
+    padding: 100px 0;
+    margin-bottom: 20px;
+}
+
+.register__card form .complete-message .icon-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.register__card form .image-box {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 150px;
+    height: 150px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.register__card form .complete-message .icon-container .material-icons {
+    color: #006a4e;
+    margin-bottom: 15px;
+    font-size: 60px;
+}
+
+.register__card form .complete-message h6 {
+    display: flex;
+    justify-content: center;
+    color: #555;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* BUTTON */
+.btn-group {
+    margin: 0 auto 0;
+}
+
+.btn-group .btn.btn--reverse {
+    margin: 10px auto 0;
+    width: 100%;
+}

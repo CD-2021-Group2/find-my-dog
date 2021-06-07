@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유기견 검색</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Find My Dog" />
+    <meta property="og:title" content="Find My Dog" />
+    <meta property="og:description" content="AI 서비스를 통해 나의 소중한 강아지를 찾아보세요." />
+    <meta property="og:image" content="../../static/img/starbucks_seo.jpg" />
+    <meta property="og:url" content="" />
+
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="Find My Dog" />
+    <meta property="twitter:title" content="Find My Dog" />
+    <meta property="twitter:description" content="AI 서비스를 통해 나의 소중한 강아지를 찾아보세요." />
+    <meta property="twitter:image" content="../../static/img/starbucks_seo.jpg" />
+    <meta property="twitter:url" content="" />
+
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/common.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/post.css')}}" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script defer src="{{url_for('static', filename='js/common.js')}}"></script>
+    <script defer src="{{url_for('static', filename='js/post.js')}}"></script>
+</head>
+
+<body>
+    <!-- MODAL -->
+    <div class="black-bg hide"></div>
+    <div id="call-modal" class= "hide">
+        <h6 class="title">입양 문의 연락처</h6>
+        <div class="inner">
+            <div class="contact">
+                <div class="shelter">러브펫종합동물병원</div>
+                <div class="tel">(TEL) <span>010-2345-4567</span></div>
+            </div>
+            <a id="modal-close-btn" class="btn btn--reverse" href="#">닫기</a>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="inner">
+            <div class="menu">
+                <div class="material-icons">menu</div>
+                <div class="items">
+                    <ul class="inner">
+                        <li><a href="/">홈</a></li>
+                        <li><a onclick="showMyPageAlert()">마이 페이지</a></li>
+                        <li><a onclick="showSearchAlert()">유기견 검색</a></li>
+                        <li><a onclick="showRegisterAlert()">유기견 등록</a></li>
+                        <li><a onclick="showSigninAlert()">로그인/회원가입</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="/" class="material-icons">pets</a>
+            <div class="signin">
+                <div id="signin_status" onclick="changeSigninStatus()">로그인</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <section class="main">
+        <div class="inner">
+            <div class="register__card">
+                <form>
+                    <div class="image-box-container">
+                        <img id="image-box" src="../../static/img/sample_dog.jpg" alt="dog-image">
+                    </div>
+                    <div id="breed-tags">
+                        <div class="tag">페키니즈</div>
+                        <div class="tag">치와와</div>
+                        <div class="tag">시츄</div>
+                    </div>
+                    <div id="features">
+                        <span class="sex">암컷</span>/<span class="color">베이지</span>/<span class="birthyear">2017</span>(년생)/<span class="weight">5.58</span>(kg)
+                    </div>
+                    <hr>
+                    <ul id="details">
+                        <li class="number">공고번호: <span>서울-관악-2021-00183</span></li>
+                        <li class="date">공고기간: <span>2021-05-10 ~ 2021-05-20</span></li>
+                        <li class="location">발견장소: <span>신림119안전센터앞</span></li>
+                        <li class="shelter">보호센터: <span>러브펫종합동물병원</span></li>
+                        <li class="note">특이사항: <span>파란색목줄착용, 순하고사람잘따름</span></li>
+                    </ul>
+                    <div id="btn-group">
+                        <a id="modal-on-btn" href="#" class="btn btn--reverse">입양 문의하기</a>
+                        <a href="/search" class="btn btn">다른 게시물 보기</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="inner">
+            <div class="info">
+                <span>HUFS COMPREHENSIVE DESIGN 2021-1</span>
+            </div>
+
+            <p class="copyright">
+                &copy; <span class="this-year"></span> 내강아지를찾아조. All Rights Reserved.
+            </p>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>

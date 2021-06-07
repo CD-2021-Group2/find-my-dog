@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find My Dog</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Find My Dog" />
+    <meta property="og:title" content="Find My Dog" />
+    <meta property="og:description" content="AI 서비스를 통해 나의 소중한 강아지를 찾아보세요." />
+    <meta property="og:image" content="../../static/img/starbucks_seo.jpg" />
+    <meta property="og:url" content="" />
+
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="Find My Dog" />
+    <meta property="twitter:title" content="Find My Dog" />
+    <meta property="twitter:description" content="AI 서비스를 통해 나의 소중한 강아지를 찾아보세요." />
+    <meta property="twitter:image" content="../images/starbucks_seo.jpg" />
+    <meta property="twitter:url" content="" />
+
+    <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/common.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script defer src="{{url_for('static', filename='js/common.js')}}"></script>
+    <script defer src="{{url_for('static', filename='js/home.js')}}"></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="inner">
+            <div class="menu">
+                <div class="material-icons">menu</div>
+                <div class="items">
+                    <ul class="inner">
+                        <li><a href="/">홈</a></li>
+                        <li><a onclick="showMyPageAlert()">마이 페이지</a></li>
+                        <li><a onclick="showSearchAlert()">유기견 검색</a></li>
+                        <li><a onclick="showRegisterAlert()">유기견 등록</a></li>
+                        <li><a onclick="showSigninAlert()">로그인/회원가입</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="/" class="material-icons">pets</a>
+            <div class="signin">
+                <div id="signin_status" onclick="changeSigninStatus()">로그인</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <section class="main">
+        <div class="inner">
+            <div class="title">Find My Dog</div>
+            <img src="../../static/img/dog-icon.png" alt="dog-icon">
+            <p class="welcome-text">
+                <span id="enrolled-number">X,XXX</span> 마리의 유기견이<br />
+                등록되었어요.
+            </p>
+            <div class="btn-group">
+                <a onclick="showSearchAlert()" class="btn">유기견 검색</a>
+                <a onclick="showRegisterAlert()" class="btn">유기견 등록</a>
+                <a onclick="showSigninAlert()" class="btn btn--reverse">로그인/회원가입</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="inner">
+            <div class="info">
+                <span>HUFS COMPREHENSIVE DESIGN 2021-1</span>
+            </div>
+
+            <p class="copyright">
+                &copy; <span class="this-year"></span> 내강아지를찾아조. All Rights Reserved.
+            </p>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>
